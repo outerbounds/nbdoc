@@ -2,7 +2,8 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"CleanOutput": "mdx.ipynb",
+index = {"InjectMeta": "mdx.ipynb",
+         "CleanOutput": "mdx.ipynb",
          "WriteTitle": "mdx.ipynb",
          "CleanMagics": "mdx.ipynb",
          "BashIdentify": "mdx.ipynb",
