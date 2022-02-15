@@ -4,14 +4,18 @@ __all__ = ['CleanOutput', 'WriteTitle', 'CleanMagics', 'BashIdentify', 'get_mdx_
 
 # Cell
 from nbconvert.preprocessors import Preprocessor
-from nbconvert import MarkdownExporter
+from nbconvert import MarkdownExporter, NotebookExporter
 from nbconvert.preprocessors import TagRemovePreprocessor
 from nbdev.imports import get_config
 import traitlets
 from IPython.display import display, Markdown
 from traitlets.config import Config
 from pathlib import Path
-import re, os
+import re, os, json
+from nbdev.export import read_nb
+
+# Cell
+_re_meta = r'^\s*#cell_meta:\S+\s*[\n\r]'
 
 # Cell
 class CleanOutput(Preprocessor):
@@ -42,8 +46,8 @@ class WriteTitle(Preprocessor):
 
 # Cell
 class CleanMagics(Preprocessor):
-    """A preprocessor to remove cell magic commands"""
-    pattern = '^\s*(%%|%).+?[\n\r]'
+    """A preprocessor to remove cell magic commands and #cell_meta: comments"""
+    pattern = r'(^\s*(%%|%).+?[\n\r])|({0})'.format(_re_meta)
 
     def preprocess_cell(self, cell, resources, index):
         if cell.cell_type == 'code':
