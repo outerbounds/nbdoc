@@ -4,6 +4,7 @@ Gemfile.lock
 .gitattributes
 .last_checked
 .gitconfig
+.metaflow
 *.bak
 *.log
 *~
