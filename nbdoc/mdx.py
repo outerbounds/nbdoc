@@ -11,7 +11,7 @@ import traitlets
 from IPython.display import display, Markdown
 from traitlets.config import Config
 from pathlib import Path
-import re
+import re, os
 
 # Cell
 class CleanOutput(Preprocessor):
