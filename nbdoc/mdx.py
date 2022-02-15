@@ -54,9 +54,7 @@ class MetaflowPreamble(Preprocessor):
 # Cell
 class MetaflowSelectSteps(Preprocessor):
     """
-    Hide Metaflow steps in output that contain the metadata nbdoc.show_steps
-
-    cell_meta:show_steps=start,train
+    Hide Metaflow steps in output based on cell metadata.
     """
     re_step = r'.*\d+/{0}/\d+\s\(pid\s\d+\).*'
 

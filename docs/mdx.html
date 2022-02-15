@@ -360,8 +360,7 @@ print(&#39;hello world&#39;)
 <div class="output_markdown rendered_html output_subarea ">
 <h2 id="MetaflowSelectSteps" class="doc_header"><code>class</code> <code>MetaflowSelectSteps</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L55" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowSelectSteps</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
-<p>Hide Metaflow steps in output that contain the metadata nbdoc.show_steps</p>
-<p>cell_meta:show_steps=start,train</p>
+<p>Hide Metaflow steps in output based on cell metadata.</p>
 
 </div>
 
@@ -458,7 +457,7 @@ print(&#39;hello world&#39;)
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="WriteTitle" class="doc_header"><code>class</code> <code>WriteTitle</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L78" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>WriteTitle</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="WriteTitle" class="doc_header"><code>class</code> <code>WriteTitle</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L76" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>WriteTitle</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Modify the code-fence with the filename upon %%writefile cell magic.</p>
 
@@ -640,7 +639,7 @@ Hello World
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="CleanMagics" class="doc_header"><code>class</code> <code>CleanMagics</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L92" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CleanMagics</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="CleanMagics" class="doc_header"><code>class</code> <code>CleanMagics</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L90" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CleanMagics</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>A preprocessor to remove cell magic commands and #cell_meta: comments</p>
 
@@ -802,7 +801,7 @@ Hello World
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="BashIdentify" class="doc_header"><code>class</code> <code>BashIdentify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L102" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BashIdentify</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="BashIdentify" class="doc_header"><code>class</code> <code>BashIdentify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L100" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BashIdentify</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>A preprocessor to identify bash commands and mark them appropriately</p>
 
@@ -895,7 +894,7 @@ python myflow.py run
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_mdx_exporter" class="doc_header"><code>get_mdx_exporter</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L113" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_mdx_exporter</code>(<strong><code>template_file</code></strong>=<em><code>'ob.tpl'</code></em>)</p>
+<h4 id="get_mdx_exporter" class="doc_header"><code>get_mdx_exporter</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L111" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_mdx_exporter</code>(<strong><code>template_file</code></strong>=<em><code>'ob.tpl'</code></em>)</p>
 </blockquote>
 <p>A mdx notebook exporter which composes many pre-processors together.</p>
 
