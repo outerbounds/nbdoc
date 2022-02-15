@@ -54,7 +54,7 @@ nb_path: "nbs/mdx.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="InjectMeta" class="doc_header"><code>class</code> <code>InjectMeta</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L21" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>InjectMeta</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="InjectMeta" class="doc_header"><code>class</code> <code>InjectMeta</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L23" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>InjectMeta</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Allows you to inject metadata into a cell for further preprocessing with a comment.</p>
 
@@ -213,7 +213,7 @@ print(&#39;hello world&#39;)
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="CleanOutput" class="doc_header"><code>class</code> <code>CleanOutput</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L40" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CleanOutput</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="MetaflowPreamble" class="doc_header"><code>class</code> <code>MetaflowPreamble</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L42" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowPreamble</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Remove the preamble from Metaflow output.</p>
 
@@ -270,14 +270,17 @@ print(&#39;hello world&#39;)
     <span class="ansi-green-intense-fg ansi-bold">    The graph looks good!</span>
     <span class="ansi-magenta-fg">Running pylint...</span>
     <span class="ansi-green-intense-fg ansi-bold">    Pylint is happy!</span>
-    <span class="ansi-magenta-fg">2022-02-14 22:56:56.887 </span><span class="ansi-bold">Workflow starting (run-id 1644908216882171):</span>
-    <span class="ansi-magenta-fg">2022-02-14 22:56:56.893 </span><span class="ansi-green-fg">[1644908216882171/start/1 (pid 41032)] </span><span class="ansi-bold">Task is starting.</span>
-    <span class="ansi-magenta-fg">2022-02-14 22:56:57.568 </span><span class="ansi-green-fg">[1644908216882171/start/1 (pid 41032)] </span>this is the start
-    <span class="ansi-magenta-fg">2022-02-14 22:56:57.640 </span><span class="ansi-green-fg">[1644908216882171/start/1 (pid 41032)] </span><span class="ansi-bold">Task finished successfully.</span>
-    <span class="ansi-magenta-fg">2022-02-14 22:56:57.647 </span><span class="ansi-green-fg">[1644908216882171/end/2 (pid 41037)] </span><span class="ansi-bold">Task is starting.</span>
-    <span class="ansi-magenta-fg">2022-02-14 22:56:58.300 </span><span class="ansi-green-fg">[1644908216882171/end/2 (pid 41037)] </span>this is the end
-    <span class="ansi-magenta-fg">2022-02-14 22:56:58.371 </span><span class="ansi-green-fg">[1644908216882171/end/2 (pid 41037)] </span><span class="ansi-bold">Task finished successfully.</span>
-    <span class="ansi-magenta-fg">2022-02-14 22:56:58.372 </span><span class="ansi-bold">Done!</span>
+    <span class="ansi-magenta-fg">2022-02-15 13:57:54.075 </span><span class="ansi-bold">Workflow starting (run-id 1644962274071949):</span>
+    <span class="ansi-magenta-fg">2022-02-15 13:57:54.084 </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 13:57:54.703 </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span>this is the start
+    <span class="ansi-magenta-fg">2022-02-15 13:57:54.771 </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg">2022-02-15 13:57:54.779 </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 13:57:55.412 </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span>the train step
+    <span class="ansi-magenta-fg">2022-02-15 13:57:55.483 </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg">2022-02-15 13:57:55.491 </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 13:57:56.121 </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span>this is the end
+    <span class="ansi-magenta-fg">2022-02-15 13:57:56.189 </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg">2022-02-15 13:57:56.190 </span><span class="ansi-bold">Done!</span>
     
 
 </pre>
@@ -292,7 +295,7 @@ print(&#39;hello world&#39;)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We want to strip this output as well as the superflous clolors, which we can do with the <a href="/nbdoc/mdx.html#CleanOutput"><code>CleanOutput</code></a> preprocessor:</p>
+<p>We want to strip this output as well as the superflous clolors, which we can do with the <a href="/nbdoc/mdx.html#MetaflowPreamble"><code>MetaflowPreamble</code></a> preprocessor:</p>
 
 </div>
 </div>
@@ -304,7 +307,7 @@ print(&#39;hello world&#39;)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">CleanOutput</span><span class="p">],</span> <span class="s1">&#39;test_files/run_flow.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">MetaflowPreamble</span><span class="p">],</span> <span class="s1">&#39;test_files/run_flow.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">assert</span> <span class="s1">&#39;Validating your flow...&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c</span>
 </pre></div>
 
@@ -322,14 +325,17 @@ print(&#39;hello world&#39;)
 !python myflow.py run
 ```
 
-    2022-02-14 22:56:56.887 Workflow starting (run-id 1644908216882171):
-    2022-02-14 22:56:56.893 [1644908216882171/start/1 (pid 41032)] Task is starting.
-    2022-02-14 22:56:57.568 [1644908216882171/start/1 (pid 41032)] this is the start
-    2022-02-14 22:56:57.640 [1644908216882171/start/1 (pid 41032)] Task finished successfully.
-    2022-02-14 22:56:57.647 [1644908216882171/end/2 (pid 41037)] Task is starting.
-    2022-02-14 22:56:58.300 [1644908216882171/end/2 (pid 41037)] this is the end
-    2022-02-14 22:56:58.371 [1644908216882171/end/2 (pid 41037)] Task finished successfully.
-    2022-02-14 22:56:58.372 Done!
+    2022-02-15 13:57:54.075 Workflow starting (run-id 1644962274071949):
+    2022-02-15 13:57:54.084 [1644962274071949/start/1 (pid 46643)] Task is starting.
+    2022-02-15 13:57:54.703 [1644962274071949/start/1 (pid 46643)] this is the start
+    2022-02-15 13:57:54.771 [1644962274071949/start/1 (pid 46643)] Task finished successfully.
+    2022-02-15 13:57:54.779 [1644962274071949/train/2 (pid 46648)] Task is starting.
+    2022-02-15 13:57:55.412 [1644962274071949/train/2 (pid 46648)] the train step
+    2022-02-15 13:57:55.483 [1644962274071949/train/2 (pid 46648)] Task finished successfully.
+    2022-02-15 13:57:55.491 [1644962274071949/end/3 (pid 46653)] Task is starting.
+    2022-02-15 13:57:56.121 [1644962274071949/end/3 (pid 46653)] this is the end
+    2022-02-15 13:57:56.189 [1644962274071949/end/3 (pid 46653)] Task finished successfully.
+    2022-02-15 13:57:56.190 Done!
 
 </pre>
 </div>
@@ -352,7 +358,107 @@ print(&#39;hello world&#39;)
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="WriteTitle" class="doc_header"><code>class</code> <code>WriteTitle</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L53" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>WriteTitle</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="MetaflowSelectSteps" class="doc_header"><code>class</code> <code>MetaflowSelectSteps</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L55" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowSelectSteps</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+</blockquote>
+<p>Hide Metaflow steps in output that contain the metadata nbdoc.show_steps</p>
+<p>cell_meta:show_steps=start,train</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="/nbdoc/mdx.html#MetaflowSelectSteps"><code>MetaflowSelectSteps</code></a> is meant to be used with <a href="/nbdoc/mdx.html#InjectMeta"><code>InjectMeta</code></a> to only show specific steps in the output logs from Metaflow.</p>
+<p>For example, if you want to only show the <code>start</code> and <code>train</code> steps in your flow, you would annotate your cell with the following pattern: <code>#cell_meta:show_steps=&lt;step_name&gt;</code></p>
+<p>In the below example, <code>#cell_meta:show_steps=start,train</code> shows the <code>start</code> and <code>train</code> steps, whereas <code>#cell_meta:show_steps=train</code> only shows the <code>train</code> step:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">InjectMeta</span><span class="p">,</span> <span class="n">MetaflowSelectSteps</span><span class="p">],</span> 
+                        <span class="s1">&#39;test_files/run_flow_showstep.ipynb&#39;</span><span class="p">,</span> 
+                        <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="s1">&#39;end&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>```python
+#cell_meta:show_steps=start,train
+!python myflow.py run
+```
+
+    <span class="ansi-magenta-fg">2022-02-15 14:01:14.810 </span><span class="ansi-green-fg">[1644962474801237/start/1 (pid 46758)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:01:15.433 </span><span class="ansi-green-fg">[1644962474801237/start/1 (pid 46758)] </span>this is the start
+    <span class="ansi-magenta-fg">2022-02-15 14:01:15.500 </span><span class="ansi-green-fg">[1644962474801237/start/1 (pid 46758)] </span><span class="ansi-bold">Task finished successfully.</span>
+    ...
+    <span class="ansi-magenta-fg">2022-02-15 14:01:15.507 </span><span class="ansi-green-fg">[1644962474801237/train/2 (pid 46763)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:01:16.123 </span><span class="ansi-green-fg">[1644962474801237/train/2 (pid 46763)] </span>the train step
+    <span class="ansi-magenta-fg">2022-02-15 14:01:16.188 </span><span class="ansi-green-fg">[1644962474801237/train/2 (pid 46763)] </span><span class="ansi-bold">Task finished successfully.</span>
+    ...
+
+
+```python
+#cell_meta:show_steps=train
+!python myflow.py run
+```
+
+    <span class="ansi-magenta-fg">2022-02-15 14:01:18.924 </span><span class="ansi-green-fg">[1644962478210532/train/2 (pid 46783)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:01:19.566 </span><span class="ansi-green-fg">[1644962478210532/train/2 (pid 46783)] </span>the train step
+    <span class="ansi-magenta-fg">2022-02-15 14:01:19.632 </span><span class="ansi-green-fg">[1644962478210532/train/2 (pid 46783)] </span><span class="ansi-bold">Task finished successfully.</span>
+    ...
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="WriteTitle" class="doc_header"><code>class</code> <code>WriteTitle</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L78" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>WriteTitle</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Modify the code-fence with the filename upon %%writefile cell magic.</p>
 
@@ -406,7 +512,6 @@ print(&#39;hello world&#39;)
 
 ```python
 %%writefile myflow.py
-
 from metaflow import FlowSpec, step
 
 class MyFlow(FlowSpec):
@@ -414,6 +519,11 @@ class MyFlow(FlowSpec):
     @step
     def start(self):
         print(&#39;this is the start&#39;)
+        self.next(self.train)
+    
+    @step
+    def train(self):
+        print(&#39;the train step&#39;)
         self.next(self.end)
     
     @step
@@ -462,8 +572,7 @@ Hello World
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">WriteTitle</span><span class="p">],</span> <span class="s1">&#39;test_files/writefile.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">c</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;```py title=&quot;myflow.py&quot;&#39;</span>
-<span class="k">assert</span> <span class="n">c</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">24</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;```txt title=&quot;hello.txt&quot;&#39;</span>
+<span class="k">assert</span> <span class="s1">&#39;```py title=&quot;myflow.py&quot;&#39;</span> <span class="ow">in</span> <span class="n">c</span> <span class="ow">and</span> <span class="s1">&#39;```txt title=&quot;hello.txt&quot;&#39;</span> <span class="ow">in</span> <span class="n">c</span>
 </pre></div>
 
     </div>
@@ -481,7 +590,6 @@ Hello World
 
 ```py title=&#34;myflow.py&#34;
 %%writefile myflow.py
-
 from metaflow import FlowSpec, step
 
 class MyFlow(FlowSpec):
@@ -489,6 +597,11 @@ class MyFlow(FlowSpec):
     @step
     def start(self):
         print(&#39;this is the start&#39;)
+        self.next(self.train)
+    
+    @step
+    def train(self):
+        print(&#39;the train step&#39;)
         self.next(self.end)
     
     @step
@@ -527,7 +640,7 @@ Hello World
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="CleanMagics" class="doc_header"><code>class</code> <code>CleanMagics</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L67" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CleanMagics</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="CleanMagics" class="doc_header"><code>class</code> <code>CleanMagics</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L92" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CleanMagics</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>A preprocessor to remove cell magic commands and #cell_meta: comments</p>
 
@@ -587,6 +700,11 @@ class MyFlow(FlowSpec):
     @step
     def start(self):
         print(&#39;this is the start&#39;)
+        self.next(self.train)
+    
+    @step
+    def train(self):
+        print(&#39;the train step&#39;)
         self.next(self.end)
     
     @step
@@ -612,6 +730,67 @@ Hello World
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is how <a href="/nbdoc/mdx.html#CleanMagics"><code>CleanMagics</code></a> Works on the file with the Metaflow log outputs from earlier, we can see that the <code>#cell_meta</code> comments are gone:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">InjectMeta</span><span class="p">,</span> <span class="n">MetaflowSelectSteps</span><span class="p">,</span> <span class="n">CleanMagics</span><span class="p">],</span> 
+                        <span class="s1">&#39;test_files/run_flow_showstep.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>```python
+!python myflow.py run
+```
+
+    <span class="ansi-magenta-fg">2022-02-15 14:01:14.810 </span><span class="ansi-green-fg">[1644962474801237/start/1 (pid 46758)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:01:15.433 </span><span class="ansi-green-fg">[1644962474801237/start/1 (pid 46758)] </span>this is the start
+    <span class="ansi-magenta-fg">2022-02-15 14:01:15.500 </span><span class="ansi-green-fg">[1644962474801237/start/1 (pid 46758)] </span><span class="ansi-bold">Task finished successfully.</span>
+    ...
+    <span class="ansi-magenta-fg">2022-02-15 14:01:15.507 </span><span class="ansi-green-fg">[1644962474801237/train/2 (pid 46763)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:01:16.123 </span><span class="ansi-green-fg">[1644962474801237/train/2 (pid 46763)] </span>the train step
+    <span class="ansi-magenta-fg">2022-02-15 14:01:16.188 </span><span class="ansi-green-fg">[1644962474801237/train/2 (pid 46763)] </span><span class="ansi-bold">Task finished successfully.</span>
+    ...
+
+
+```python
+!python myflow.py run
+```
+
+    <span class="ansi-magenta-fg">2022-02-15 14:01:18.924 </span><span class="ansi-green-fg">[1644962478210532/train/2 (pid 46783)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:01:19.566 </span><span class="ansi-green-fg">[1644962478210532/train/2 (pid 46783)] </span>the train step
+    <span class="ansi-magenta-fg">2022-02-15 14:01:19.632 </span><span class="ansi-green-fg">[1644962478210532/train/2 (pid 46783)] </span><span class="ansi-bold">Task finished successfully.</span>
+    ...
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -623,7 +802,7 @@ Hello World
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="BashIdentify" class="doc_header"><code>class</code> <code>BashIdentify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L77" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BashIdentify</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="BashIdentify" class="doc_header"><code>class</code> <code>BashIdentify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L102" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BashIdentify</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>A preprocessor to identify bash commands and mark them appropriately</p>
 
@@ -658,7 +837,7 @@ Hello World
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">CleanOutput</span><span class="p">,</span> <span class="n">BashIdentify</span><span class="p">],</span> <span class="s1">&#39;test_files/run_flow.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">MetaflowPreamble</span><span class="p">,</span> <span class="n">BashIdentify</span><span class="p">],</span> <span class="s1">&#39;test_files/run_flow.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">assert</span> <span class="s2">&quot;```bash&quot;</span> <span class="ow">in</span> <span class="n">c</span> <span class="ow">and</span> <span class="s1">&#39;!python&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c</span>
 </pre></div>
 
@@ -676,14 +855,17 @@ Hello World
 python myflow.py run
 ```
 
-    2022-02-14 22:56:56.887 Workflow starting (run-id 1644908216882171):
-    2022-02-14 22:56:56.893 [1644908216882171/start/1 (pid 41032)] Task is starting.
-    2022-02-14 22:56:57.568 [1644908216882171/start/1 (pid 41032)] this is the start
-    2022-02-14 22:56:57.640 [1644908216882171/start/1 (pid 41032)] Task finished successfully.
-    2022-02-14 22:56:57.647 [1644908216882171/end/2 (pid 41037)] Task is starting.
-    2022-02-14 22:56:58.300 [1644908216882171/end/2 (pid 41037)] this is the end
-    2022-02-14 22:56:58.371 [1644908216882171/end/2 (pid 41037)] Task finished successfully.
-    2022-02-14 22:56:58.372 Done!
+    2022-02-15 13:57:54.075 Workflow starting (run-id 1644962274071949):
+    2022-02-15 13:57:54.084 [1644962274071949/start/1 (pid 46643)] Task is starting.
+    2022-02-15 13:57:54.703 [1644962274071949/start/1 (pid 46643)] this is the start
+    2022-02-15 13:57:54.771 [1644962274071949/start/1 (pid 46643)] Task finished successfully.
+    2022-02-15 13:57:54.779 [1644962274071949/train/2 (pid 46648)] Task is starting.
+    2022-02-15 13:57:55.412 [1644962274071949/train/2 (pid 46648)] the train step
+    2022-02-15 13:57:55.483 [1644962274071949/train/2 (pid 46648)] Task finished successfully.
+    2022-02-15 13:57:55.491 [1644962274071949/end/3 (pid 46653)] Task is starting.
+    2022-02-15 13:57:56.121 [1644962274071949/end/3 (pid 46653)] this is the end
+    2022-02-15 13:57:56.189 [1644962274071949/end/3 (pid 46653)] Task finished successfully.
+    2022-02-15 13:57:56.190 Done!
 
 </pre>
 </div>
@@ -713,7 +895,7 @@ python myflow.py run
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_mdx_exporter" class="doc_header"><code>get_mdx_exporter</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L88" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_mdx_exporter</code>(<strong><code>template_file</code></strong>=<em><code>'ob.tpl'</code></em>)</p>
+<h4 id="get_mdx_exporter" class="doc_header"><code>get_mdx_exporter</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L113" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_mdx_exporter</code>(<strong><code>template_file</code></strong>=<em><code>'ob.tpl'</code></em>)</p>
 </blockquote>
 <p>A mdx notebook exporter which composes many pre-processors together.</p>
 
@@ -808,6 +990,7 @@ Another shell command where we run a flow:
 
 
 ```python
+#cell_meta:show_steps=start
 ! python myflow.py run
 ```
 
@@ -816,14 +999,17 @@ Another shell command where we run a flow:
     <span class="ansi-green-intense-fg ansi-bold">    The graph looks good!</span>
     <span class="ansi-magenta-fg">Running pylint...</span>
     <span class="ansi-green-intense-fg ansi-bold">    Pylint is happy!</span>
-    <span class="ansi-magenta-fg">2022-02-14 10:39:55.240 </span><span class="ansi-bold">Workflow starting (run-id 1644863995236850):</span>
-    <span class="ansi-magenta-fg">2022-02-14 10:39:55.247 </span><span class="ansi-green-fg">[1644863995236850/start/1 (pid 97470)] </span><span class="ansi-bold">Task is starting.</span>
-    <span class="ansi-magenta-fg">2022-02-14 10:39:55.840 </span><span class="ansi-green-fg">[1644863995236850/start/1 (pid 97470)] </span>this is the start
-    <span class="ansi-magenta-fg">2022-02-14 10:39:55.911 </span><span class="ansi-green-fg">[1644863995236850/start/1 (pid 97470)] </span><span class="ansi-bold">Task finished successfully.</span>
-    <span class="ansi-magenta-fg">2022-02-14 10:39:55.919 </span><span class="ansi-green-fg">[1644863995236850/end/2 (pid 97476)] </span><span class="ansi-bold">Task is starting.</span>
-    <span class="ansi-magenta-fg">2022-02-14 10:39:56.519 </span><span class="ansi-green-fg">[1644863995236850/end/2 (pid 97476)] </span>this is the end
-    <span class="ansi-magenta-fg">2022-02-14 10:39:56.593 </span><span class="ansi-green-fg">[1644863995236850/end/2 (pid 97476)] </span><span class="ansi-bold">Task finished successfully.</span>
-    <span class="ansi-magenta-fg">2022-02-14 10:39:56.593 </span><span class="ansi-bold">Done!</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:11:09.216 </span><span class="ansi-bold">Workflow starting (run-id 1644963069213536):</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:11:09.224 </span><span class="ansi-green-fg">[1644963069213536/start/1 (pid 46840)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:11:09.858 </span><span class="ansi-green-fg">[1644963069213536/start/1 (pid 46840)] </span>this is the start
+    <span class="ansi-magenta-fg">2022-02-15 14:11:09.929 </span><span class="ansi-green-fg">[1644963069213536/start/1 (pid 46840)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:11:09.936 </span><span class="ansi-green-fg">[1644963069213536/train/2 (pid 46845)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:11:10.556 </span><span class="ansi-green-fg">[1644963069213536/train/2 (pid 46845)] </span>the train step
+    <span class="ansi-magenta-fg">2022-02-15 14:11:10.626 </span><span class="ansi-green-fg">[1644963069213536/train/2 (pid 46845)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:11:10.633 </span><span class="ansi-green-fg">[1644963069213536/end/3 (pid 46850)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:11:11.249 </span><span class="ansi-green-fg">[1644963069213536/end/3 (pid 46850)] </span>this is the end
+    <span class="ansi-magenta-fg">2022-02-15 14:11:11.315 </span><span class="ansi-green-fg">[1644963069213536/end/3 (pid 46850)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg">2022-02-15 14:11:11.315 </span><span class="ansi-bold">Done!</span>
     
 
 This is a normal python cell:
@@ -934,14 +1120,10 @@ Another shell command where we run a flow:
 python myflow.py run
 ```
 
-    2022-02-14 10:39:55.240 Workflow starting (run-id 1644863995236850):
-    2022-02-14 10:39:55.247 [1644863995236850/start/1 (pid 97470)] Task is starting.
-    2022-02-14 10:39:55.840 [1644863995236850/start/1 (pid 97470)] this is the start
-    2022-02-14 10:39:55.911 [1644863995236850/start/1 (pid 97470)] Task finished successfully.
-    2022-02-14 10:39:55.919 [1644863995236850/end/2 (pid 97476)] Task is starting.
-    2022-02-14 10:39:56.519 [1644863995236850/end/2 (pid 97476)] this is the end
-    2022-02-14 10:39:56.593 [1644863995236850/end/2 (pid 97476)] Task finished successfully.
-    2022-02-14 10:39:56.593 Done!
+    2022-02-15 14:11:09.224 [1644963069213536/start/1 (pid 46840)] Task is starting.
+    2022-02-15 14:11:09.858 [1644963069213536/start/1 (pid 46840)] this is the start
+    2022-02-15 14:11:09.929 [1644963069213536/start/1 (pid 46840)] Task finished successfully.
+    ...
 
 This is a normal python cell:
 

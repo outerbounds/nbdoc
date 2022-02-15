@@ -3,7 +3,8 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"InjectMeta": "mdx.ipynb",
-         "CleanOutput": "mdx.ipynb",
+         "MetaflowPreamble": "mdx.ipynb",
+         "MetaflowSelectSteps": "mdx.ipynb",
          "WriteTitle": "mdx.ipynb",
          "CleanMagics": "mdx.ipynb",
          "BashIdentify": "mdx.ipynb",
