@@ -6,7 +6,7 @@ index = {"CleanOutput": "mdx.ipynb",
          "WriteTitle": "mdx.ipynb",
          "CleanMagics": "mdx.ipynb",
          "BashIdentify": "mdx.ipynb",
-         "get_exporter": "mdx.ipynb"}
+         "get_mdx_exporter": "mdx.ipynb"}
 
 modules = ["mdx.py"]
 
