@@ -1,7 +1,6 @@
 {
   "nbdoc": {
     "Overview": "/",
-    "module name here": "core.html",
     "Custom Preprocessors For MDX": "mdx.html"
   }
 }
