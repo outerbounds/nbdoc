@@ -3,6 +3,7 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"nb2md": "convert.ipynb",
+         "parallel_nb2md": "convert.ipynb",
          "nbdoc_build": "convert.ipynb",
          "InjectMeta": "mdx.ipynb",
          "MetaflowPreamble": "mdx.ipynb",
