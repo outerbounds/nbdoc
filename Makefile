@@ -21,8 +21,11 @@ docs: $(SRC)
 test:
 	nbdev_test_nbs
 
-release: pypi conda_release
+release:
+	all
+	nbdev_clean_nbs
 	nbdev_bump_version
+	pypi
 
 conda_release:
 	fastrelease_conda_package
