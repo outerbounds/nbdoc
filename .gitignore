@@ -12,6 +12,7 @@ Gemfile.lock
 _tmp*
 tmp*
 tags
+_notes.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
