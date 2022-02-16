@@ -186,6 +186,12 @@ python myflow.py run
 This is a normal python cell:
 
 
+```python
+a = 2
+a
+```
+
+
 
 
     2
@@ -193,6 +199,11 @@ This is a normal python cell:
 
 
 The next cell has a cell tag of `remove_input`, so you should only see the output of the cell:
+
+
+```python
+print(&#39;hello, you should not see the print statement that produced me&#39;)
+```
 
     hello, you should not see the print statement that produced me
 
@@ -284,8 +295,8 @@ The next cell has a cell tag of `remove_input`, so you should only see the outpu
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>converting: test_files/run_flow_showstep.ipynb
 converting: test_files/hello_world.ipynb
-converting: test_files/run_flow.ipynb
-converting: test_files/example_input.ipynb
+
+converting: test_files/run_flow.ipynbconverting: test_files/example_input.ipynb
 converting: test_files/writefile.ipynb
 </pre>
 </div>
