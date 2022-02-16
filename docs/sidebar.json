@@ -2,6 +2,7 @@
   "nbdoc": {
     "Overview": "/",
     "Convert Notebooks To Markdown": "convert.html",
-    "Preprocessors For MDX": "mdx.html"
+    "Preprocessors For MDX": "mdx.html",
+    "Testing Notebooks": "test.html"
   }
 }
