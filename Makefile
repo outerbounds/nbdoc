@@ -2,39 +2,22 @@
 SHELL := /bin/bash
 SRC = $(wildcard nbs/*.ipynb)
 
-all: nbdoc docs
-
-nbdoc: $(SRC)
-	nbdev_build_lib
-	touch nbdoc
 
 sync:
 	nbdev_update_lib
 
 docs_serve: docs
-	cd docs && bundle exec jekyll serve
-
-docs: $(SRC)
 	nbdev_build_docs
-	touch docs
+	cd docs && bundle exec jekyll serve
 
 test:
 	nbdev_test_nbs
 
+
 release:
-	all
 	nbdev_clean_nbs
+	nbdev_build_lib
 	nbdev_bump_version
-	pypi
-
-conda_release:
-	fastrelease_conda_package
-
-pypi: dist
-	twine upload --repository pypi dist/*
-
-dist: clean
-	python setup.py sdist bdist_wheel
-
-clean:
 	rm -rf dist
+	python setup.py sdist bdist_wheel
+	twine upload --repository pypi dist/*
