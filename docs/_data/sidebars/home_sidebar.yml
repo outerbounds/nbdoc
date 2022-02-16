@@ -10,10 +10,10 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Convert Jupyter Notebooks To MDX Files
+      title: Convert Notebooks To Markdown
       url: convert.html
     - output: web,pdf
-      title: Custom Preprocessors For MDX
+      title: Preprocessors For MDX
       url: mdx.html
     output: web
     title: nbdoc
