@@ -38,7 +38,7 @@ This library consists of two cli tools as noted below.
 
 ### Testing Notebooks
 
-`nbdoc_test` is just an alias of `nbdev_test_nbs`:
+`nbdoc_test` is just an alias of `nbdev_test_nbs` from [nbdev](https://github.com/fastai/nbdev), and is a lightweight way to test notebooks.
 
 ```python
 ! nbdoc_test --help
@@ -60,6 +60,10 @@ This library consists of two cli tools as noted below.
       --pause PAUSE          Pause time (in secs) between notebooks to avoid race
                              conditions (default: 0.5)
 
+
+## Documentation
+
+Documentation [can be found here](https://outerbounds.github.io/nbdoc/).
 
 ## References
 
