@@ -31,7 +31,7 @@ nb_path: "nbs/test.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can use <code>nbdev_test_nbs</code> from <a href="https://nbdev.fast.ai/test.html#nbdev_test_nbs">nbdev</a> to test notebooks.  No customization is necessary for docs sites.</p>
+<p>You can use <code>nbdev_test_nbs</code> from <a href="https://nbdev.fast.ai/test.html#nbdev_test_nbs">nbdev</a> to test notebooks.  No customization is necessary for docs sites.  This is aliased as <code>nbdoc_test</code> for convenience:</p>
 
 </div>
 </div>
@@ -43,7 +43,7 @@ nb_path: "nbs/test.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>nbdev_test_nbs --help
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>nbdoc_test --help
 </pre></div>
 
     </div>
@@ -56,9 +56,8 @@ nb_path: "nbs/test.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>usage: nbdev_test_nbs [-h] [--fname FNAME] [--flags FLAGS]
-                      [--n_workers N_WORKERS] [--verbose VERBOSE] [--timing]
-                      [--pause PAUSE]
+<pre>usage: nbdoc_test [-h] [--fname FNAME] [--flags FLAGS] [--n_workers N_WORKERS]
+                  [--verbose VERBOSE] [--timing] [--pause PAUSE]
 
 Test in parallel the notebooks matching `fname`, passing along `flags`
 
@@ -126,7 +125,7 @@ author = Hamel Husain
 author_email = hamel@outerbounds.com
 copyright = Outerbounds
 branch = master
-version = 0.0.5
+version = 0.0.6
 min_python = 3.6
 audience = Developers
 language = English
@@ -143,7 +142,10 @@ git_url = https://github.com/outerbounds/nbdoc/tree/master/
 lib_path = nbdoc
 title = nbdoc
 console_scripts = nbdoc_build=nbdoc.convert:nbdoc_build
-tst_flags = notest</pre>
+	nbdoc_test=nbdev.test:nbdev_test_nbs
+tst_flags = notest
+
+</pre>
 </div>
 </div>
 
