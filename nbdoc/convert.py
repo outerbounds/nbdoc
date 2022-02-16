@@ -3,11 +3,12 @@
 __all__ = ['nb2md']
 
 # Cell
+import os, sys
 from .mdx import get_mdx_exporter
 from typing import Union
 from nbdev.export import nbglob
 from nbconvert.exporters import Exporter
-from fastcore.all import Path
+from fastcore.all import Path, parallel
 
 # Cell
 def nb2md(fname:Union[str, Path], exp:Exporter):
@@ -15,5 +16,11 @@ def nb2md(fname:Union[str, Path], exp:Exporter):
     file = Path(fname)
     assert file.name.endswith('.ipynb'), f'{str(fname)} is not a notebook.'
     assert file.is_file(), f'file {str(fname)} not found.'
-    o,r = exp.from_filename(fname)
-    file.with_suffix('.md').write_text(o)
+    print(f"converting: {str(file)}")
+    try:
+        o,r = exp.from_filename(fname)
+        file.with_suffix('.md').write_text(o)
+        return True
+    except Exception as e:
+        print(e)
+        return False
