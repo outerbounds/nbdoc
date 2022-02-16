@@ -2,7 +2,8 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"InjectMeta": "mdx.ipynb",
+index = {"nb2md": "convert.ipynb",
+         "InjectMeta": "mdx.ipynb",
          "MetaflowPreamble": "mdx.ipynb",
          "MetaflowSelectSteps": "mdx.ipynb",
          "WriteTitle": "mdx.ipynb",
@@ -10,7 +11,8 @@ index = {"InjectMeta": "mdx.ipynb",
          "BashIdentify": "mdx.ipynb",
          "get_mdx_exporter": "mdx.ipynb"}
 
-modules = ["mdx.py"]
+modules = ["convert.py",
+           "mdx.py"]
 
 doc_url = "https://outerbounds.github.io/nbdoc/"
 

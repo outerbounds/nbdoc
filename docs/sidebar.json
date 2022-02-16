@@ -1,6 +1,7 @@
 {
   "nbdoc": {
     "Overview": "/",
+    "Convert Jupyter Notebooks To MDX Files": "convert.html",
     "Custom Preprocessors For MDX": "mdx.html"
   }
 }
