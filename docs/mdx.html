@@ -54,7 +54,7 @@ nb_path: "nbs/mdx.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="InjectMeta" class="doc_header"><code>class</code> <code>InjectMeta</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L23" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>InjectMeta</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="InjectMeta" class="doc_header"><code>class</code> <code>InjectMeta</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L21" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>InjectMeta</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Allows you to inject metadata into a cell for further preprocessing with a comment.</p>
 
@@ -213,7 +213,7 @@ print(&#39;hello world&#39;)
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="MetaflowPreamble" class="doc_header"><code>class</code> <code>MetaflowPreamble</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L42" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowPreamble</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="MetaflowPreamble" class="doc_header"><code>class</code> <code>MetaflowPreamble</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L40" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowPreamble</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Remove the preamble from Metaflow output.</p>
 
@@ -261,7 +261,7 @@ print(&#39;hello world&#39;)
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>```python
+<pre>```
 !python myflow.py run
 ```
 
@@ -321,7 +321,7 @@ print(&#39;hello world&#39;)
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>```python
+<pre>```
 !python myflow.py run
 ```
 
@@ -358,7 +358,7 @@ print(&#39;hello world&#39;)
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="MetaflowSelectSteps" class="doc_header"><code>class</code> <code>MetaflowSelectSteps</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L55" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowSelectSteps</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="MetaflowSelectSteps" class="doc_header"><code>class</code> <code>MetaflowSelectSteps</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L53" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowSelectSteps</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Hide Metaflow steps in output based on cell metadata.</p>
 
@@ -411,7 +411,7 @@ print(&#39;hello world&#39;)
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>```python
+<pre>```
 #cell_meta:show_steps=start,train
 !python myflow.py run
 ```
@@ -426,7 +426,7 @@ print(&#39;hello world&#39;)
     ...
 
 
-```python
+```
 #cell_meta:show_steps=train
 !python myflow.py run
 ```
@@ -457,7 +457,7 @@ print(&#39;hello world&#39;)
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="WriteTitle" class="doc_header"><code>class</code> <code>WriteTitle</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L76" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>WriteTitle</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="WriteTitle" class="doc_header"><code>class</code> <code>WriteTitle</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L74" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>WriteTitle</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Modify the code-fence with the filename upon %%writefile cell magic.</p>
 
@@ -509,7 +509,7 @@ print(&#39;hello world&#39;)
 <pre>A test notebook
 
 
-```python
+```
 %%writefile myflow.py
 from metaflow import FlowSpec, step
 
@@ -537,7 +537,7 @@ if __name__ == &#39;__main__&#39;:
 
 
 
-```python
+```
 %%writefile hello.txt
 
 Hello World
@@ -639,7 +639,7 @@ Hello World
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="CleanMagics" class="doc_header"><code>class</code> <code>CleanMagics</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L90" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CleanMagics</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="CleanMagics" class="doc_header"><code>class</code> <code>CleanMagics</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L88" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CleanMagics</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>A preprocessor to remove cell magic commands and #cell_meta: comments</p>
 
@@ -757,7 +757,7 @@ Hello World
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>```python
+<pre>```
 !python myflow.py run
 ```
 
@@ -771,7 +771,7 @@ Hello World
     ...
 
 
-```python
+```
 !python myflow.py run
 ```
 
@@ -801,7 +801,7 @@ Hello World
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="BashIdentify" class="doc_header"><code>class</code> <code>BashIdentify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L100" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BashIdentify</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="BashIdentify" class="doc_header"><code>class</code> <code>BashIdentify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L98" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BashIdentify</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>A preprocessor to identify bash commands and mark them appropriately</p>
 
@@ -894,7 +894,7 @@ python myflow.py run
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_mdx_exporter" class="doc_header"><code>get_mdx_exporter</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L111" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_mdx_exporter</code>(<strong><code>template_file</code></strong>=<em><code>'ob.tpl'</code></em>)</p>
+<h4 id="get_mdx_exporter" class="doc_header"><code>get_mdx_exporter</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L109" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_mdx_exporter</code>(<strong><code>template_file</code></strong>=<em><code>'ob.tpl'</code></em>)</p>
 </blockquote>
 <p>A mdx notebook exporter which composes many pre-processors together.</p>
 
@@ -1127,6 +1127,12 @@ python myflow.py run
 This is a normal python cell:
 
 
+```python
+a = 2
+a
+```
+
+
 
 
     2
@@ -1134,6 +1140,11 @@ This is a normal python cell:
 
 
 The next cell has a cell tag of `remove_input`, so you should only see the output of the cell:
+
+
+```python
+print(&#39;hello, you should not see the print statement that produced me&#39;)
+```
 
     hello, you should not see the print statement that produced me
 

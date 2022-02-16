@@ -9,11 +9,9 @@ from nbconvert import MarkdownExporter, NotebookExporter
 from nbconvert.preprocessors import TagRemovePreprocessor
 from nbdev.imports import get_config
 import traitlets
-from IPython.display import display, Markdown
 from traitlets.config import Config
 from pathlib import Path
 import re, os, json
-from fastcore.all import L, flatten
 from nbdev.export import read_nb
 
 # Cell
