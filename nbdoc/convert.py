@@ -28,7 +28,7 @@ def nb2md(fname:Union[str, Path], exp:Exporter):
 # Cell
 def parallel_nb2md(basedir:Union[Path,str], exp:Exporter, recursive=True, force_all=False, n_workers=None, pause=0):
     "Convert all notebooks in `dir` to markdown files."
-    files = nbglob(basedir, recursive=recursive)
+    files = nbglob(basedir, recursive=recursive).filter(lambda x: not x.name.startswith('Untitled'))
     if len(files)==1:
         force_all = True
         if n_workers is None: n_workers=0

@@ -138,6 +138,8 @@ title: my hello page title
 description: my hello page description
 hide_table_of_contents: true
 ---
+
+
 ## This is a test notebook
 
 This is a shell command:
@@ -186,7 +188,7 @@ python myflow.py run
 This is a normal python cell:
 
 
-```python
+```
 a = 2
 a
 ```
@@ -201,7 +203,7 @@ a
 The next cell has a cell tag of `remove_input`, so you should only see the output of the cell:
 
 
-```python
+```
 print(&#39;hello, you should not see the print statement that produced me&#39;)
 ```
 
@@ -298,6 +300,8 @@ converting: test_files/hello_world.ipynb
 
 converting: test_files/run_flow.ipynbconverting: test_files/example_input.ipynb
 converting: test_files/writefile.ipynb
+converting: test_files/frontmatter.ipynbconverting: test_files/visibility.ipynb
+
 </pre>
 </div>
 </div>
@@ -395,7 +399,9 @@ converting: test_files/writefile.ipynb
 converting: test_files/hello_world.ipynb
 converting: test_files/run_flow.ipynb
 converting: test_files/example_input.ipynb
-converting: test_files/writefile.ipynb
+converting: test_files/visibility.ipynbconverting: test_files/writefile.ipynb
+
+converting: test_files/frontmatter.ipynb
 </pre>
 </div>
 </div>
