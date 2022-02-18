@@ -29,6 +29,24 @@ nb_path: "nbs/mdx.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Cell-Tag-Cheatsheet">Cell Tag Cheatsheet<a class="anchor-link" href="#Cell-Tag-Cheatsheet"> </a></h2><p>These preprocessors allow you to make special comments to enable/disable them.  Here is a list of all special comments:</p>
+<p>All comments start with <code>#meta</code> or <code>#cell_meta</code>, which are both aliases for the same thing.  For brevity, we will use <code>#meta</code> in this cheatsheet.</p>
+<h3 id="Show/Hide-Cells">Show/Hide Cells<a class="anchor-link" href="#Show/Hide-Cells"> </a></h3><ol>
+<li>Remvoe entire cells:  <code>#meta:tag=remove_cell</code> or <code>#meta:tag=hide</code></li>
+<li>Remove output: <code>#meta:tag=remove_output</code> or <code>#meta:tag=remove_output</code> or <code>#meta:tag=hide_outputs</code> or <code>#meta:tag=hide_output</code></li>
+<li>Remove input: same as above, except <code>input</code> instead of <code>output</code>.</li>
+</ol>
+<h3 id="Selecting-Metaflow-Steps">Selecting Metaflow Steps<a class="anchor-link" href="#Selecting-Metaflow-Steps"> </a></h3><p>You can selectively show meataflow steps in the output logs:</p>
+<ol>
+<li>Show one step: <code>#meta:show_steps=&lt;step_name&gt;</code></li>
+<li>Show multiple steps: <code>#meta:show_steps=&lt;step1_name&gt;,&lt;step2_name&gt;</code></li>
+</ol>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -77,7 +95,7 @@ nb_path: "nbs/mdx.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To inject metadata make a comment in a cell with the following pattern: '#cell_meta:{key=value}'</p>
+<p>To inject metadata make a comment in a cell with the following pattern: <code>#cell_meta:{key=value}</code>. Note that <code>#meta</code> is an alias for <code>#cell_meta</code></p>
 <p>For example, consider the following code:</p>
 
 </div>
@@ -105,7 +123,7 @@ nb_path: "nbs/mdx.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>#cell_meta:show_steps=start,train
+<pre>#meta:show_steps=start,train
 print(&#39;hello world&#39;)
 </pre>
 </div>
@@ -327,7 +345,7 @@ print(&#39;hello world&#39;)
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>```python
-#cell_meta:show_steps=start,train
+#meta:show_steps=start,train
 print(&#39;hello world&#39;)
 ```
 
@@ -411,7 +429,7 @@ print(&#39;hello world&#39;)
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>```python
-#cell_meta:show_steps=start,train
+#meta:show_steps=start,train
 print(&#39;hello world&#39;)
 ```
 
@@ -462,7 +480,7 @@ print(&#39;hello world&#39;)
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>```python
-#cell_meta:show_steps=start,train
+#meta:show_steps=start,train
 print(&#39;hello world&#39;)
 ```
 
@@ -490,9 +508,9 @@ print(&#39;hello world&#39;)
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="MetaflowPreamble" class="doc_header"><code>class</code> <code>MetaflowPreamble</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L87" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowPreamble</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="MetaflowTruncate" class="doc_header"><code>class</code> <code>MetaflowTruncate</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L87" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowTruncate</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
-<p>Remove the preamble from Metaflow output.</p>
+<p>Remove the preamble and timestamp from Metaflow output.</p>
 
 </div>
 
@@ -572,7 +590,7 @@ print(&#39;hello world&#39;)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We want to strip this output as well as the superflous clolors, which we can do with the <a href="/nbdoc/mdx.html#MetaflowPreamble"><code>MetaflowPreamble</code></a> preprocessor:</p>
+<p>We don't need to see the beginning part that validates the graph, and we don't need the time-stamps either.  We can remove these with the <a href="/nbdoc/mdx.html#MetaflowTruncate"><code>MetaflowTruncate</code></a> preprocessor:</p>
 
 </div>
 </div>
@@ -584,7 +602,7 @@ print(&#39;hello world&#39;)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">MetaflowPreamble</span><span class="p">],</span> <span class="s1">&#39;test_files/run_flow.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">MetaflowTruncate</span><span class="p">],</span> <span class="s1">&#39;test_files/run_flow.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">assert</span> <span class="s1">&#39;Validating your flow...&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c</span>
 </pre></div>
 
@@ -602,17 +620,17 @@ print(&#39;hello world&#39;)
 !python myflow.py run
 ```
 
-    <span class="ansi-magenta-fg">2022-02-15 13:57:54.075 </span><span class="ansi-bold">Workflow starting (run-id 1644962274071949):</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:54.084 </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span><span class="ansi-bold">Task is starting.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:54.703 </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span>this is the start
-    <span class="ansi-magenta-fg">2022-02-15 13:57:54.771 </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span><span class="ansi-bold">Task finished successfully.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:54.779 </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span><span class="ansi-bold">Task is starting.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:55.412 </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span>the train step
-    <span class="ansi-magenta-fg">2022-02-15 13:57:55.483 </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span><span class="ansi-bold">Task finished successfully.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:55.491 </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span><span class="ansi-bold">Task is starting.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:56.121 </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span>this is the end
-    <span class="ansi-magenta-fg">2022-02-15 13:57:56.189 </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span><span class="ansi-bold">Task finished successfully.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:56.190 </span><span class="ansi-bold">Done!</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-bold">Workflow starting (run-id 1644962274071949):</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span>this is the start
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span>the train step
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span>this is the end
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-bold">Done!</span>
     
 
 </pre>
@@ -636,7 +654,7 @@ print(&#39;hello world&#39;)
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="UpdateTags" class="doc_header"><code>class</code> <code>UpdateTags</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L99" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>UpdateTags</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="UpdateTags" class="doc_header"><code>class</code> <code>UpdateTags</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L100" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>UpdateTags</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Create cell tags based upon comment <code>#cell_meta:tags=&lt;tag&gt;</code></p>
 
@@ -820,7 +838,7 @@ print(&#39;the output is removed, so you can only see the print statement.&#39;)
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="MetaflowSelectSteps" class="doc_header"><code>class</code> <code>MetaflowSelectSteps</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L111" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowSelectSteps</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="MetaflowSelectSteps" class="doc_header"><code>class</code> <code>MetaflowSelectSteps</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L112" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MetaflowSelectSteps</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Hide Metaflow steps in output based on cell metadata.</p>
 
@@ -920,7 +938,7 @@ print(&#39;the output is removed, so you can only see the print statement.&#39;)
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="WriteTitle" class="doc_header"><code>class</code> <code>WriteTitle</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L132" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>WriteTitle</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="WriteTitle" class="doc_header"><code>class</code> <code>WriteTitle</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L133" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>WriteTitle</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Modify the code-fence with the filename upon %%writefile cell magic.</p>
 
@@ -1102,7 +1120,7 @@ Hello World
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="CleanMagics" class="doc_header"><code>class</code> <code>CleanMagics</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L146" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CleanMagics</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="CleanMagics" class="doc_header"><code>class</code> <code>CleanMagics</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L147" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CleanMagics</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>A preprocessor to remove cell magic commands and #cell_meta: comments</p>
 
@@ -1264,7 +1282,7 @@ Hello World
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="BashIdentify" class="doc_header"><code>class</code> <code>BashIdentify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L156" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BashIdentify</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="BashIdentify" class="doc_header"><code>class</code> <code>BashIdentify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L157" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BashIdentify</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>A preprocessor to identify bash commands and mark them appropriately</p>
 
@@ -1299,7 +1317,7 @@ Hello World
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">MetaflowPreamble</span><span class="p">,</span> <span class="n">BashIdentify</span><span class="p">],</span> <span class="s1">&#39;test_files/run_flow.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">MetaflowTruncate</span><span class="p">,</span> <span class="n">BashIdentify</span><span class="p">],</span> <span class="s1">&#39;test_files/run_flow.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">assert</span> <span class="s2">&quot;```bash&quot;</span> <span class="ow">in</span> <span class="n">c</span> <span class="ow">and</span> <span class="s1">&#39;!python&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c</span>
 </pre></div>
 
@@ -1317,17 +1335,17 @@ Hello World
 python myflow.py run
 ```
 
-    <span class="ansi-magenta-fg">2022-02-15 13:57:54.075 </span><span class="ansi-bold">Workflow starting (run-id 1644962274071949):</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:54.084 </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span><span class="ansi-bold">Task is starting.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:54.703 </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span>this is the start
-    <span class="ansi-magenta-fg">2022-02-15 13:57:54.771 </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span><span class="ansi-bold">Task finished successfully.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:54.779 </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span><span class="ansi-bold">Task is starting.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:55.412 </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span>the train step
-    <span class="ansi-magenta-fg">2022-02-15 13:57:55.483 </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span><span class="ansi-bold">Task finished successfully.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:55.491 </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span><span class="ansi-bold">Task is starting.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:56.121 </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span>this is the end
-    <span class="ansi-magenta-fg">2022-02-15 13:57:56.189 </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span><span class="ansi-bold">Task finished successfully.</span>
-    <span class="ansi-magenta-fg">2022-02-15 13:57:56.190 </span><span class="ansi-bold">Done!</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-bold">Workflow starting (run-id 1644962274071949):</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span>this is the start
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/start/1 (pid 46643)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span>the train step
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/train/2 (pid 46648)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span><span class="ansi-bold">Task is starting.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span>this is the end
+    <span class="ansi-magenta-fg"> </span><span class="ansi-green-fg">[1644962274071949/end/3 (pid 46653)] </span><span class="ansi-bold">Task finished successfully.</span>
+    <span class="ansi-magenta-fg"> </span><span class="ansi-bold">Done!</span>
     
 
 </pre>
@@ -1358,7 +1376,7 @@ python myflow.py run
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_mdx_exporter" class="doc_header"><code>get_mdx_exporter</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L167" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_mdx_exporter</code>(<strong><code>template_file</code></strong>=<em><code>'ob.tpl'</code></em>)</p>
+<h4 id="get_mdx_exporter" class="doc_header"><code>get_mdx_exporter</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/mdx.py#L168" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_mdx_exporter</code>(<strong><code>template_file</code></strong>=<em><code>'ob.tpl'</code></em>)</p>
 </blockquote>
 <p>A mdx notebook exporter which composes many pre-processors together.</p>
 
@@ -1494,6 +1512,7 @@ The next cell has a cell tag of `remove_input`, so you should only see the outpu
 
 
 ```python
+#meta:tag=remove_input
 print(&#39;hello, you should not see the print statement that produced me&#39;)
 ```
 
@@ -1592,9 +1611,9 @@ Another shell command where we run a flow:
 python myflow.py run
 ```
 
-    2022-02-15 14:11:09.224 [1644963069213536/start/1 (pid 46840)] Task is starting.
-    2022-02-15 14:11:09.858 [1644963069213536/start/1 (pid 46840)] this is the start
-    2022-02-15 14:11:09.929 [1644963069213536/start/1 (pid 46840)] Task finished successfully.
+     [1644963069213536/start/1 (pid 46840)] Task is starting.
+     [1644963069213536/start/1 (pid 46840)] this is the start
+     [1644963069213536/start/1 (pid 46840)] Task finished successfully.
     ...
 
 This is a normal python cell:
@@ -1613,11 +1632,6 @@ a
 
 
 The next cell has a cell tag of `remove_input`, so you should only see the output of the cell:
-
-
-```python
-print(&#39;hello, you should not see the print statement that produced me&#39;)
-```
 
     hello, you should not see the print statement that produced me
 
