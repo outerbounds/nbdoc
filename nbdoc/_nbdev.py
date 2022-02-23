@@ -4,6 +4,7 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"Parsed": "apiref.ipynb",
          "ParsedFunc": "apiref.ipynb",
+         "ParsedModule": "apiref.ipynb",
          "nb2md": "convert.ipynb",
          "parallel_nb2md": "convert.ipynb",
          "nbdoc_build": "convert.ipynb",

@@ -373,59 +373,37 @@ nb_path: "nbs/apiref.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">ParsedModule</span><span class="p">(</span><span class="n">Parsed</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basedir</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-        <span class="s2">&quot;Parse python modules given a `basedir` and `filepath`&quot;</span>
-        <span class="n">fp</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
-        <span class="n">bd</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">basedir</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">filepath</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">basedir</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;`filepath`: </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2"> must start with `basedir`: </span><span class="si">{</span><span class="n">basedir</span><span class="si">}</span><span class="s2">&quot;</span> 
-        <span class="k">assert</span> <span class="n">fp</span><span class="o">.</span><span class="n">exists</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;File does not exist: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
-        <span class="k">assert</span> <span class="n">fp</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s1">&#39;.py&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Only python files can be parsed.  Got: f</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
-        
-        
-        <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">stem</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">stem</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">source_dir</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^/&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">bd</span><span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dest_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_dir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">&quot;</span>
-        
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Module</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Cannot parse non-Module type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span> <span class="o">=</span> <span class="n">L</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">classes</span> <span class="o">=</span> <span class="n">L</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">L</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">body</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">risinstance</span><span class="p">((</span><span class="n">ast</span><span class="o">.</span><span class="n">FunctionDef</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">ClassDef</span><span class="p">))):</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">FunctionDef</span><span class="p">):</span>
-                <span class="n">f</span> <span class="o">=</span> <span class="n">ParsedFunc</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">include</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">ClassDef</span><span class="p">):</span>
-                <span class="n">c</span> <span class="o">=</span> <span class="n">ParsedClass</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">include</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-        
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">include</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes</span>
-    
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">func_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">attrgot</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+<div class="output_wrapper">
+<div class="output">
 
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">class_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">attrgot</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
-</pre></div>
+<div class="output_area">
 
-    </div>
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="ParsedModule" class="doc_header"><code>class</code> <code>ParsedModule</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/apiref.py#L42" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ParsedModule</code>(<strong><code>basedir</code></strong>:<code>str</code>, <strong><code>filepath</code></strong>:<code>str</code>) :: <a href="/nbdoc/apiref.html#Parsed"><code>Parsed</code></a></p>
+</blockquote>
+
+</div>
+
+</div>
+
 </div>
 </div>
 
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>ParsedModule</code> will parse modules</p>
+<p><a href="/nbdoc/apiref.html#ParsedModule"><code>ParsedModule</code></a> parses python modules:</p>
 
 </div>
 </div>
@@ -516,7 +494,7 @@ nb_path: "nbs/apiref.ipynb"
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_pm</span><span class="o">.</span><span class="n">classes</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;MetaflowObject&#39;</span><span class="p">:</span>
-        <span class="c1"># the signature, or __init__ of `MetaflowObject`</span>
+        <span class="c1"># the signature, or __init__ of `MetaflowObject` in our test data</span>
         <span class="n">test_eq</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">signature</span><span class="p">,</span> <span class="s1">&#39;self, pathspec=None, attempt=None, _object=None, _parent=None, _namespace_check=True&#39;</span><span class="p">)</span>
         <span class="n">_tst_methods</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">methods</span>
         
