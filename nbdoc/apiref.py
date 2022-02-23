@@ -8,6 +8,7 @@ import ast, re
 
 # Cell
 class Parsed:
+    "Base class for Parsed objects used to store structured data about an AST."
     def __init__(self, tree):
         self.tree = tree
         self.docstring = ast.get_docstring(tree)
@@ -40,8 +41,8 @@ class ParsedFunc(Parsed):
 
 # Cell
 class ParsedClass(Parsed):
+    "Parse Python Classes and associated methods."
     def __init__(self, tree):
-        "Parse Python Classes."
         assert isinstance(tree, ast.ClassDef), f"Cannot parse non-class type: {type(tree)}."
         super().__init__(tree)
         self.docstring = ast.get_docstring(tree)
@@ -65,8 +66,8 @@ class ParsedClass(Parsed):
 
 # Cell
 class ParsedModule(Parsed):
+    "Parse python modules given a `basedir` and `filepath`"
     def __init__(self, basedir:str, filepath:str):
-        "Parse python modules given a `basedir` and `filepath`"
         fp = Path(filepath)
         bd = Path(basedir)
         assert filepath.startswith(basedir), f"`filepath`: {filepath} must start with `basedir`: {basedir}"
