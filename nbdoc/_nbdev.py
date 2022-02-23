@@ -2,7 +2,9 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"nb2md": "convert.ipynb",
+index = {"Parsed": "apiref.ipynb",
+         "ParsedFunc": "apiref.ipynb",
+         "nb2md": "convert.ipynb",
          "parallel_nb2md": "convert.ipynb",
          "nbdoc_build": "convert.ipynb",
          "InjectMeta": "mdx.ipynb",
@@ -17,7 +19,8 @@ index = {"nb2md": "convert.ipynb",
          "BashIdentify": "mdx.ipynb",
          "get_mdx_exporter": "mdx.ipynb"}
 
-modules = ["convert.py",
+modules = ["apiref.py",
+           "convert.py",
            "mdx.py"]
 
 doc_url = "https://outerbounds.github.io/nbdoc/"
