@@ -196,38 +196,30 @@ nb_path: "nbs/apiref.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">ParsedClass</span><span class="p">(</span><span class="n">Parsed</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">):</span>
-        <span class="s2">&quot;Parse Python Classes.&quot;</span>
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">ClassDef</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Cannot parse non-class type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">docstring</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">get_docstring</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_methods</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_funcs</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">methods</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_methods</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;__init__&#39;</span><span class="p">:</span> 
-                <span class="bp">self</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">m</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;__init__&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_init_method</span> <span class="o">=</span> <span class="n">m</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">signature</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">args</span>
-        
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">include</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_methods</span><span class="p">)</span>
-        
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="ParsedClass" class="doc_header"><code>class</code> <code>ParsedClass</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/apiref.py#L42" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ParsedClass</code>(<strong><code>tree</code></strong>) :: <a href="/nbdoc/apiref.html#Parsed"><code>Parsed</code></a></p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
     
-    <span class="k">def</span> <span class="nf">get_funcs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">_funcs</span> <span class="o">=</span> <span class="n">L</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">body</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">risinstance</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">FunctionDef</span><span class="p">))</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">ParsedFunc</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">_funcs</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">include</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -381,7 +373,7 @@ nb_path: "nbs/apiref.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ParsedModule" class="doc_header"><code>class</code> <code>ParsedModule</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/apiref.py#L42" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ParsedModule</code>(<strong><code>basedir</code></strong>:<code>str</code>, <strong><code>filepath</code></strong>:<code>str</code>) :: <a href="/nbdoc/apiref.html#Parsed"><code>Parsed</code></a></p>
+<h2 id="ParsedModule" class="doc_header"><code>class</code> <code>ParsedModule</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/apiref.py#L67" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ParsedModule</code>(<strong><code>basedir</code></strong>:<code>str</code>, <strong><code>filepath</code></strong>:<code>str</code>) :: <a href="/nbdoc/apiref.html#Parsed"><code>Parsed</code></a></p>
 </blockquote>
 
 </div>
