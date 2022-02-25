@@ -1,9 +1,9 @@
 {
   "nbdoc": {
     "Overview": "/",
-    "Parse Python Modules For API Reference Docs": "apiref.html",
     "Convert Notebooks To Markdown": "convert.html",
     "Preprocessors For MDX": "mdx.html",
+    "JSX Representations Of Objects": "showdoc.html",
     "Testing Notebooks": "test.html"
   }
 }

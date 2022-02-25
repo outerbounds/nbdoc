@@ -10,14 +10,14 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Parse Python Modules For API Reference Docs
-      url: apiref.html
-    - output: web,pdf
       title: Convert Notebooks To Markdown
       url: convert.html
     - output: web,pdf
       title: Preprocessors For MDX
       url: mdx.html
+    - output: web,pdf
+      title: JSX Representations Of Objects
+      url: showdoc.html
     - output: web,pdf
       title: Testing Notebooks
       url: test.html

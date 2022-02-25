@@ -7,8 +7,6 @@
 
 ## Install
 
-**Note: `nbdoc` requires python 3.9 or higher**
-
 `pip install nbdoc`
 
 ## Usage
