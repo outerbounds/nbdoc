@@ -64,22 +64,27 @@ def np2jsx(obj):
 
 # Cell
 def fmt_sig_param(p:inspect.Parameter):
-    "Format inspect.Parameters as JSX components"
+    "Format inspect.Parameters as JSX components."
     name = str(p) if str(p).startswith('*') else p.name
     prefix = f'<SigArg name="{name}" '
+
     if p.annotation != inspect._empty:
         prefix += f'type="{p.annotation.__name__}" '
     if p.default != inspect._empty:
         prefix += f'default="{p.default}" '
+
     return prefix + "/>"
 
 # Cell
-def get_sig_section(obj):
-    "Get JSX section from the signature of a class or function consisting of all of the argument."
-    if not inspect.isclass(obj) and not _is_func(obj):
-        raise ValueError(f'You can only generate parameters for classes and functions but got: {type(obj)}')
-    params = inspect.signature(obj).parameters.items()
-    jsx_params = [fmt_sig_param(p) for _, p in params]
+def get_sig_section(obj, spoofstr=None):
+    "Get JSX section from the signature of a class or function consisting of all of the argument. Optionally replace signature with `spoofstr`"
+    if not spoofstr:
+        if not inspect.isclass(obj) and not _is_func(obj):
+            raise ValueError(f'You can only generate parameters for classes and functions but got: {type(obj)}')
+        params = inspect.signature(obj).parameters.items()
+        jsx_params = [fmt_sig_param(p) for _, p in params]
+    else:
+        jsx_params = [f'<SigArg name="{spoofstr}" />']
     return "<SigArgSection>\n" + ''.join(jsx_params) +"\n</SigArgSection>"
 
 # Cell
@@ -103,13 +108,15 @@ def get_base_urls(warn=False, param='module_baseurls') -> dict:
 
 # Cell
 class ShowDoc:
-    def __init__(self, obj, hd_lvl=None):
+    def __init__(self, obj, hd_lvl=None, name=None, objtype=None, decorator=False):
         "Construct the html and JSX representation for a particular object."
+        if decorator: objtype = 'decorator'
         self.obj = obj
-        self.typ = get_type(obj)
+        self.decorator = decorator
+        self.typ = get_type(obj) if not objtype else objtype
         if not self.typ: raise ValueError(f'Can only parse a class or a function, but got a {type(obj)}')
         self.npdocs = np2jsx(obj)
-        self.objnm = obj.__name__
+        self.objnm = obj.__name__ if not name else name
         self.modnm = inspect.getmodule(obj).__name__
 
         if hd_lvl: self.hd_lvl = hd_lvl
@@ -139,13 +146,16 @@ class ShowDoc:
 
     @property
     def _html_signature(self):
-        return str(inspect.signature(self.obj))
+        if self.decorator: sig = '(...)'
+        else: sig = str(inspect.signature(self.obj))
+        return sig
 
     @property
     def jsx(self):
         "Returns the JSX components."
         nm = f'<DocSection type="{self.typ}" name="{self.objnm}" module="{self.modnm}"{self._src_link_attr}>'
-        sp = get_sig_section(self.obj)
+        spoof = '...' if self.decorator else None
+        sp = get_sig_section(self.obj, spoofstr=spoof)
         return f'{nm}\n{sp}\n{self.npdocs}\n</DocSection>'
 
     @property

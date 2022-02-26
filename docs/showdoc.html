@@ -54,7 +54,7 @@ nb_path: "nbs/showdoc.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="is_valid_xml" class="doc_header"><code>is_valid_xml</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L17" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_valid_xml</code>(<strong><code>xml</code></strong>:<code>str</code>)</p>
+<h4 id="is_valid_xml" class="doc_header"><code>is_valid_xml</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L19" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_valid_xml</code>(<strong><code>xml</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Determine if xml is valid or not.</p>
 
@@ -154,7 +154,7 @@ WARNING: xml not does not parse:mismatched tag: line 1, column 7
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="param2JSX" class="doc_header"><code>param2JSX</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L26" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>param2JSX</code>(<strong><code>p</code></strong>:<code>Parameter</code>)</p>
+<h4 id="param2JSX" class="doc_header"><code>param2JSX</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L28" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>param2JSX</code>(<strong><code>p</code></strong>:<code>Parameter</code>)</p>
 </blockquote>
 <p>Format a numpydoc.docscrape.Parameters as JSX components</p>
 
@@ -207,7 +207,7 @@ WARNING: xml not does not parse:mismatched tag: line 1, column 7
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="np2jsx" class="doc_header"><code>np2jsx</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L40" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>np2jsx</code>(<strong><code>obj</code></strong>)</p>
+<h4 id="np2jsx" class="doc_header"><code>np2jsx</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>np2jsx</code>(<strong><code>obj</code></strong>)</p>
 </blockquote>
 <p>Turn Numpy Docstrings Into JSX components</p>
 
@@ -428,9 +428,9 @@ bool
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="fmt_sig_param" class="doc_header"><code>fmt_sig_param</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L64" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fmt_sig_param</code>(<strong><code>p</code></strong>:<code>Parameter</code>)</p>
+<h4 id="fmt_sig_param" class="doc_header"><code>fmt_sig_param</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L66" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fmt_sig_param</code>(<strong><code>p</code></strong>:<code>Parameter</code>)</p>
 </blockquote>
-<p>Format inspect.Parameters as JSX components</p>
+<p>Format inspect.Parameters as JSX components.</p>
 
 </div>
 
@@ -522,6 +522,40 @@ bool
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">busdaycalendar</span>
+<span class="n">inspect</span><span class="o">.</span><span class="n">isfunction</span><span class="p">(</span><span class="n">busdaycalendar</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
@@ -530,9 +564,9 @@ bool
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_sig_section" class="doc_header"><code>get_sig_section</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L75" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_sig_section</code>(<strong><code>obj</code></strong>)</p>
+<h4 id="get_sig_section" class="doc_header"><code>get_sig_section</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L79" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_sig_section</code>(<strong><code>obj</code></strong>, <strong><code>spoofstr</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
-<p>Get JSX section from the signature of a class or function consisting of all of the argument.</p>
+<p>Get JSX section from the signature of a class or function consisting of all of the argument. Optionally replace signature with <code>spoofstr</code></p>
 
 </div>
 
@@ -650,9 +684,60 @@ bool
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_jsx_doc" class="doc_header"><code>get_jsx_doc</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L84" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_jsx_doc</code>(<strong><code>obj</code></strong>)</p>
+<h4 id="get_type" class="doc_header"><code>get_type</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_type</code>(<strong><code>obj</code></strong>)</p>
 </blockquote>
-<p>Construct the full JSX documentation for a particular object.</p>
+<p>Return type of object as a either 'method', 'function', 'class' or <code>None</code>.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">get_type</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">function_with_types_in_docstring</span><span class="p">),</span><span class="s1">&#39;function&#39;</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">get_type</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">ExampleClass</span><span class="p">),</span> <span class="s1">&#39;class&#39;</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">get_type</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">ExampleClass</span><span class="o">.</span><span class="n">example_method</span><span class="p">),</span> <span class="s1">&#39;method&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_base_urls" class="doc_header"><code>get_base_urls</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L101" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_base_urls</code>(<strong><code>warn</code></strong>=<em><code>False</code></em>, <strong><code>param</code></strong>=<em><code>'module_baseurls'</code></em>)</p>
+</blockquote>
+<p>Get baseurls from config file</p>
 
 </div>
 
@@ -673,7 +758,12 @@ bool
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="/nbdoc/showdoc.html#get_jsx_doc"><code>get_jsx_doc</code></a> extracts JSX Markup about an object so that you can use it for code documentation.  Here are some examples:</p>
+<p>This project has a settings.ini which defines the <code>module_baseurls</code> parameter.  <a href="/nbdoc/showdoc.html#get_base_urls"><code>get_base_urls</code></a> will return a dictionary of all the baseurls defined there.  This is useful used to construct URLs to source code in documentation.</p>
+<p>Here is how the relevant parts of this project's <code>settings.ini</code> file is defined:</p>
+
+<pre><code>module_baseurls = metaflow=https://github.com/Netflix/metaflow/tree/master/
+    nbdev=https://github.com/fastai/nbdev/tree/master
+    fastcore=https://github.com/fastcore/tree/master</code></pre>
 
 </div>
 </div>
@@ -685,9 +775,9 @@ bool
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_result</span> <span class="o">=</span> <span class="n">get_jsx_doc</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">ExampleClass</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">is_valid_xml</span><span class="p">(</span><span class="n">_result</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">_result</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_base_urls</span> <span class="o">=</span> <span class="n">get_base_urls</span><span class="p">()</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">_base_urls</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="n">_base_urls</span>
 </pre></div>
 
     </div>
@@ -699,19 +789,14 @@ bool
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;DocSection type=&#34;class&#34; name=&#34;ExampleClass&#34; module=&#34;test_lib.example&#34; link=&#34;test_lib/example.py#L195&#34;&gt;
-&lt;SigArgSection&gt;
-&lt;SigArg name=&#34;param1&#34; /&gt;&lt;SigArg name=&#34;param2&#34; /&gt;&lt;SigArg name=&#34;param3&#34; /&gt;
-&lt;/SigArgSection&gt;
-&lt;Description summary=&#34;The summary line for a class docstring should fit on one line.&#34; extended_summary=&#34;If the class has public attributes, they may be documented here\nin an ``Attributes`` section and follow the same formatting as a\nfunction&#39;s ``Args`` section. Alternatively, attributes may be documented\ninline with the attribute&#39;s declaration (see __init__ method below).\n\nProperties created with the ``@property`` decorator should be documented\nin the property&#39;s getter method.&#34; /&gt;
-&lt;ParamSection name=&#34;Attributes&#34;&gt;
-	&lt;Parameter name=&#34;attr1&#34; type=&#34;str&#34; desc=&#34;Description of `attr1`.&#34; /&gt;
-	&lt;Parameter name=&#34;attr2&#34; type=&#34;:obj:`int`, optional&#34; desc=&#34;Description of `attr2`.&#34; /&gt;
-&lt;/ParamSection&gt;
-&lt;/DocSection&gt;
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;metaflow&#39;: &#39;https://github.com/Netflix/metaflow/tree/master/&#39;,
+ &#39;nbdev&#39;: &#39;https://github.com/fastai/nbdev/tree/master&#39;,
+ &#39;fastcore&#39;: &#39;https://github.com/fastcore/tree/master&#39;}</pre>
 </div>
+
 </div>
 
 </div>
@@ -723,13 +808,50 @@ bool
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="ShowDoc" class="doc_header"><code>class</code> <code>ShowDoc</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L110" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ShowDoc</code>(<strong><code>obj</code></strong>, <strong><code>hd_lvl</code></strong>=<em><code>None</code></em>, <strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>objtype</code></strong>=<em><code>None</code></em>, <strong><code>decorator</code></strong>=<em><code>False</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="/nbdoc/showdoc.html#ShowDoc"><code>ShowDoc</code></a> will render the function signature as well as other info that may help you author documentation for a function, method, or class in a notebook:</p>
+<p>Below, we render the docs for a class:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_result</span> <span class="o">=</span> <span class="n">get_jsx_doc</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">Foo</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">is_valid_xml</span><span class="p">(</span><span class="n">_result</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">_result</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowDoc</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">ExampleClass</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -741,16 +863,21 @@ bool
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;DocSection type=&#34;class&#34; name=&#34;Foo&#34; module=&#34;test_lib.example&#34; link=&#34;test_lib/example.py#L188&#34;&gt;
-&lt;SigArgSection&gt;
-&lt;SigArg name=&#34;a&#34; type=&#34;int&#34; /&gt;&lt;SigArg name=&#34;b&#34; type=&#34;str&#34; default=&#34;foo&#34; /&gt;&lt;SigArg name=&#34;c&#34; type=&#34;float&#34; default=&#34;0.1&#34; /&gt;&lt;SigArg name=&#34;*args&#34; /&gt;&lt;SigArg name=&#34;**tags&#34; /&gt;
-&lt;/SigArgSection&gt;
 
+<div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
+<h3> <code>class</code> <span style="color:Brown">ExampleClass</span> <em>(param1, param2, param3)</em></h3><p><blockquote>The&nbsp;summary&nbsp;line&nbsp;for&nbsp;a&nbsp;class&nbsp;docstring&nbsp;should&nbsp;fit&nbsp;on&nbsp;one&nbsp;line.<br><br>If&nbsp;the&nbsp;class&nbsp;has&nbsp;public&nbsp;attributes,&nbsp;they&nbsp;may&nbsp;be&nbsp;documented&nbsp;here<br>in&nbsp;an&nbsp;``Attributes``&nbsp;section&nbsp;and&nbsp;follow&nbsp;the&nbsp;same&nbsp;formatting&nbsp;as&nbsp;a<br>function's&nbsp;``Args``&nbsp;section.&nbsp;Alternatively,&nbsp;attributes&nbsp;may&nbsp;be&nbsp;documented<br>inline&nbsp;with&nbsp;the&nbsp;attribute's&nbsp;declaration&nbsp;(see&nbsp;__init__&nbsp;method&nbsp;below).<br><br>Properties&nbsp;created&nbsp;with&nbsp;the&nbsp;``@property``&nbsp;decorator&nbsp;should&nbsp;be&nbsp;documented<br>in&nbsp;the&nbsp;property's&nbsp;getter&nbsp;method.<br><br>Attributes<br>----------<br>attr1&nbsp;:&nbsp;str<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr1`.<br>attr2&nbsp;:&nbsp;:obj:`int`,&nbsp;optional<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr2`.</blockquote></p>
+</HTMLRemove>
+<DocSection type="class" name="ExampleClass" module="test_lib.example">
+<SigArgSection>
+<SigArg name="param1" /><SigArg name="param2" /><SigArg name="param3" />
+</SigArgSection>
+<Description summary="The summary line for a class docstring should fit on one line." extended_summary="If the class has public attributes, they may be documented here\nin an ``Attributes`` section and follow the same formatting as a\nfunction's ``Args`` section. Alternatively, attributes may be documented\ninline with the attribute's declaration (see __init__ method below).\n\nProperties created with the ``@property`` decorator should be documented\nin the property's getter method." />
+<ParamSection name="Attributes">
+	<Parameter name="attr1" type="str" desc="Description of `attr1`." />
+	<Parameter name="attr2" type=":obj:`int`, optional" desc="Description of `attr2`." />
+</ParamSection>
+</DocSection></div>
 
-&lt;/DocSection&gt;
-</pre>
-</div>
 </div>
 
 </div>
@@ -759,6 +886,170 @@ bool
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There is a special override for decorators:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowDoc</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">ExampleClass</span><span class="p">,</span> <span class="n">decorator</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
+<h3> <code>decorator</code> <span style="color:Brown">example</span> <em>(...)</em></h3><p><blockquote>The&nbsp;summary&nbsp;line&nbsp;for&nbsp;a&nbsp;class&nbsp;docstring&nbsp;should&nbsp;fit&nbsp;on&nbsp;one&nbsp;line.<br><br>If&nbsp;the&nbsp;class&nbsp;has&nbsp;public&nbsp;attributes,&nbsp;they&nbsp;may&nbsp;be&nbsp;documented&nbsp;here<br>in&nbsp;an&nbsp;``Attributes``&nbsp;section&nbsp;and&nbsp;follow&nbsp;the&nbsp;same&nbsp;formatting&nbsp;as&nbsp;a<br>function's&nbsp;``Args``&nbsp;section.&nbsp;Alternatively,&nbsp;attributes&nbsp;may&nbsp;be&nbsp;documented<br>inline&nbsp;with&nbsp;the&nbsp;attribute's&nbsp;declaration&nbsp;(see&nbsp;__init__&nbsp;method&nbsp;below).<br><br>Properties&nbsp;created&nbsp;with&nbsp;the&nbsp;``@property``&nbsp;decorator&nbsp;should&nbsp;be&nbsp;documented<br>in&nbsp;the&nbsp;property's&nbsp;getter&nbsp;method.<br><br>Attributes<br>----------<br>attr1&nbsp;:&nbsp;str<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr1`.<br>attr2&nbsp;:&nbsp;:obj:`int`,&nbsp;optional<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr2`.</blockquote></p>
+</HTMLRemove>
+<DocSection type="decorator" name="example" module="test_lib.example">
+<SigArgSection>
+<SigArg name="..." />
+</SigArgSection>
+<Description summary="The summary line for a class docstring should fit on one line." extended_summary="If the class has public attributes, they may be documented here\nin an ``Attributes`` section and follow the same formatting as a\nfunction's ``Args`` section. Alternatively, attributes may be documented\ninline with the attribute's declaration (see __init__ method below).\n\nProperties created with the ``@property`` decorator should be documented\nin the property's getter method." />
+<ParamSection name="Attributes">
+	<Parameter name="attr1" type="str" desc="Description of `attr1`." />
+	<Parameter name="attr2" type=":obj:`int`, optional" desc="Description of `attr2`." />
+</ParamSection>
+</DocSection></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below, we render docs for method.  Note that you will receive an warning if your docstrings are not able to be parsed according to the numpy format:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowDoc</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">ExampleClass</span><span class="o">.</span><span class="n">example_method</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/hamel/opt/anaconda3/lib/python3.9/site-packages/numpydoc/docscrape.py:434: UserWarning: Unknown section Note in the docstring of example_method in /Users/hamel/github/nbdoc/nbs/test_lib/example.py.
+  warn(msg)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
+<h4> <code>method</code> <span style="color:Brown">example_method</span> <em>(self, param1, param2)</em></h4><p><blockquote>Class&nbsp;methods&nbsp;are&nbsp;similar&nbsp;to&nbsp;regular&nbsp;functions.<br><br>Note<br>----<br>Do&nbsp;not&nbsp;include&nbsp;the&nbsp;`self`&nbsp;parameter&nbsp;in&nbsp;the&nbsp;``Parameters``&nbsp;section.<br><br>Parameters<br>----------<br>param1<br>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;parameter.<br>param2<br>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;second&nbsp;parameter.<br><br>Returns<br>-------<br>bool<br>&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;successful,&nbsp;False&nbsp;otherwise.</blockquote></p>
+</HTMLRemove>
+<DocSection type="method" name="example_method" module="test_lib.example">
+<SigArgSection>
+<SigArg name="self" /><SigArg name="param1" /><SigArg name="param2" />
+</SigArgSection>
+<Description summary="Class methods are similar to regular functions." />
+<ParamSection name="Parameters">
+	<Parameter name="param1" desc="The first parameter." />
+	<Parameter name="param2" desc="The second parameter." />
+</ParamSection>
+<ParamSection name="Returns">
+	<Parameter type="bool" desc="True if successful, False otherwise." />
+</ParamSection>
+</DocSection></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally, we can also show docs for a function.  If the module associated with the object has a baseurl specified in your project's <code>settings.ini</code> file as described in <a href="/nbdoc/showdoc.html#get_base_urls"><code>get_base_urls</code></a>, you will also see a link to the source code:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fastcore.all</span> <span class="kn">import</span> <span class="n">test_eq</span>
+<span class="n">ShowDoc</span><span class="p">(</span><span class="n">test_eq</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
+<h3> <code>function</code> <span style="color:Brown">test_eq</span> <em>(a, b)</em><a href="https://github.com/fastcore/tree/masterhttps://github.com/fastai/fastcore/tree/master/fastcore/test.py#L34" style="float:right">[source]</a></h3><p><blockquote>`test`&nbsp;that&nbsp;`a==b`</blockquote></p>
+</HTMLRemove>
+<DocSection type="function" name="test_eq" module="fastcore.test" link="https://github.com/fastcore/tree/masterhttps://github.com/fastai/fastcore/tree/master/fastcore/test.py#L34">
+<SigArgSection>
+<SigArg name="a" /><SigArg name="b" />
+</SigArgSection>
+<Description summary="`test` that `a==b`" />
+
+</DocSection></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="/nbdoc/showdoc.html#ShowDoc.jsx"><code>ShowDoc.jsx</code></a> extracts JSX Markup about an object so that you can use it for code documentation.  Here are some examples:</p>
+
+</div>
+</div>
+</div>
 </div>
  
 
