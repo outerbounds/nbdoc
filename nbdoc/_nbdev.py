@@ -15,13 +15,16 @@ index = {"nb2md": "convert.ipynb",
          "WriteTitle": "mdx.ipynb",
          "CleanMagics": "mdx.ipynb",
          "BashIdentify": "mdx.ipynb",
+         "CleanShowDoc": "mdx.ipynb",
          "get_mdx_exporter": "mdx.ipynb",
          "is_valid_xml": "showdoc.ipynb",
          "param2JSX": "showdoc.ipynb",
          "np2jsx": "showdoc.ipynb",
          "fmt_sig_param": "showdoc.ipynb",
          "get_sig_section": "showdoc.ipynb",
-         "get_jsx_doc": "showdoc.ipynb"}
+         "get_type": "showdoc.ipynb",
+         "get_base_urls": "showdoc.ipynb",
+         "ShowDoc": "showdoc.ipynb"}
 
 modules = ["convert.py",
            "mdx.py",
