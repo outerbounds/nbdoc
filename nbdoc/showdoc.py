@@ -81,7 +81,11 @@ def get_sig_section(obj, spoofstr=None):
     if not spoofstr:
         if not inspect.isclass(obj) and not _is_func(obj):
             raise ValueError(f'You can only generate parameters for classes and functions but got: {type(obj)}')
-        params = inspect.signature(obj).parameters.items()
+        try:
+            sig = inspect.signature(obj)
+        except:
+            return ''
+        params = sig.parameters.items()
         jsx_params = [fmt_sig_param(p) for _, p in params]
     else:
         jsx_params = [f'<SigArg name="{spoofstr}" />']
@@ -92,8 +96,12 @@ def get_type(obj):
     "Return type of object as a either 'method', 'function', 'class' or `None`."
     typ = None
     if _is_func(obj):
-        if 'self' in inspect.signature(obj).parameters: typ = 'method'
-        else: typ = 'function'
+        try:
+            sig = inspect.signature(obj)
+            if 'self' in sig.parameters: typ = 'method'
+            else: typ = 'function'
+        except ValueError:
+            return 'function'
     elif inspect.isclass(obj): typ = 'class'
     return typ
 
@@ -147,7 +155,9 @@ class ShowDoc:
     @property
     def _html_signature(self):
         if self.decorator: sig = '(...)'
-        else: sig = str(inspect.signature(self.obj))
+        else:
+            try: sig = str(inspect.signature(self.obj))
+            except: sig = ''
         return sig
 
     @property
