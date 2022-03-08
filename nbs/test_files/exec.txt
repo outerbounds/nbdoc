@@ -17,8 +17,7 @@
    },
    "outputs": [],
    "source": [
-    "from math import ceil\n",
-    "from metaflow import FlowSpec"
+    "from math import ceil"
    ]
   },
   {
