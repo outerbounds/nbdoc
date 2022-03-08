@@ -42,8 +42,8 @@ This library consists of two cli tools as noted below.
 ! nbdoc_update -h
 ```
 
-    usage: nbdoc_update [-h] [--srcdir SRCDIR] [--n_workers N_WORKERS]
-                        [--pause PAUSE]
+    usage: nbdoc_update [-h] [--srcdir SRCDIR] [--flags FLAGS]
+                        [--n_workers N_WORKERS] [--pause PAUSE]
     
     Refresh all notebooks in `srcdir` by running them and saving them in place.
     
@@ -51,6 +51,9 @@ This library consists of two cli tools as noted below.
       -h, --help             show this help message and exit
       --srcdir SRCDIR        A directory of notebooks to refresh recursively, can
                              also be a filename.
+      --flags FLAGS          Space separated list of flags (tst_flags in
+                             settings.ini) to NOT ignore while running notebooks.
+                             Otherwise, those cells are ignored.
       --n_workers N_WORKERS  Number of workers to use
       --pause PAUSE          Pause time (in secs) between notebooks to avoid race
                              conditions (default: 0.5)

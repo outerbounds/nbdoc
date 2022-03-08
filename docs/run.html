@@ -47,7 +47,7 @@ nb_path: "nbs/run.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="nbrun" class="doc_header"><code>nbrun</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/run.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>nbrun</code>(<strong><code>fname</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>])</p>
+<h4 id="nbrun" class="doc_header"><code>nbrun</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/run.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>nbrun</code>(<strong><code>fname</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>flags</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Execute notebook and skip cells that have flags consistent <code>tst_flags</code> in settings.ini</p>
 
@@ -114,7 +114,7 @@ nb_path: "nbs/run.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="nbupdate" class="doc_header"><code>nbupdate</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/run.py#L28" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>nbupdate</code>(<strong><code>fname</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>])</p>
+<h4 id="nbupdate" class="doc_header"><code>nbupdate</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/run.py#L29" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>nbupdate</code>(<strong><code>fname</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>flags</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Run notebooks and update them in place.</p>
 
@@ -181,7 +181,7 @@ finished: test_files/exec.ipynb
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="parallel_nbupdate" class="doc_header"><code>parallel_nbupdate</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/run.py#L40" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parallel_nbupdate</code>(<strong><code>basedir</code></strong>:<code>Union</code>[<code>Path</code>, <code>str</code>], <strong><code>recursive</code></strong>=<em><code>True</code></em>, <strong><code>n_workers</code></strong>=<em><code>None</code></em>, <strong><code>pause</code></strong>=<em><code>0.1</code></em>)</p>
+<h4 id="parallel_nbupdate" class="doc_header"><code>parallel_nbupdate</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/run.py#L41" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parallel_nbupdate</code>(<strong><code>basedir</code></strong>:<code>Union</code>[<code>Path</code>, <code>str</code>], <strong><code>flags</code></strong>=<em><code>None</code></em>, <strong><code>recursive</code></strong>=<em><code>True</code></em>, <strong><code>n_workers</code></strong>=<em><code>None</code></em>, <strong><code>pause</code></strong>=<em><code>0.1</code></em>)</p>
 </blockquote>
 <p>Run all notebooks in <code>dir</code> and save them in place.</p>
 
@@ -249,7 +249,7 @@ All notebooks refreshed!
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="nbdoc_update" class="doc_header"><code>nbdoc_update</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/run.py#L53" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>nbdoc_update</code>(<strong><code>srcdir</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>n_workers</code></strong>:<code>int</code>=<em><code>None</code></em>, <strong><code>pause</code></strong>:<code>float</code>=<em><code>0.5</code></em>)</p>
+<h4 id="nbdoc_update" class="doc_header"><code>nbdoc_update</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/run.py#L54" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>nbdoc_update</code>(<strong><code>srcdir</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>flags</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>n_workers</code></strong>:<code>int</code>=<em><code>None</code></em>, <strong><code>pause</code></strong>:<code>float</code>=<em><code>0.5</code></em>)</p>
 </blockquote>
 <p>Refresh all notebooks in <code>srcdir</code> by running them and saving them in place.</p>
 <table>
@@ -266,6 +266,12 @@ All notebooks refreshed!
 <td><code>str</code></td>
 <td>``</td>
 <td>A directory of notebooks to refresh recursively, can also be a filename.</td>
+</tr>
+<tr>
+<td><strong><code>flags</code></strong></td>
+<td><code>str</code></td>
+<td>``</td>
+<td>Space separated list of flags (tst_flags in settings.ini) to NOT ignore while running notebooks.  Otherwise, those cells are ignored.</td>
 </tr>
 <tr>
 <td><strong><code>n_workers</code></strong></td>
