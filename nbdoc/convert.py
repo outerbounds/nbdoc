@@ -55,7 +55,7 @@ def nbdoc_build(
     n_workers:int=None,  # Number of workers to use
     pause:float=0.5  # Pause time (in secs) between notebooks to avoid race conditions
 ):
-    "Build the documentation by converting notebooks matching `fname` to html"
+    "Build the documentation by converting notebooks in `srcdir` to markdown"
     parallel_nb2md(basedir=srcdir,
                    exp=get_mdx_exporter(),
                    recursive=True,

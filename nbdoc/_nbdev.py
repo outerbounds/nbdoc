@@ -16,7 +16,13 @@ index = {"nb2md": "convert.ipynb",
          "CleanMagics": "mdx.ipynb",
          "BashIdentify": "mdx.ipynb",
          "CleanShowDoc": "mdx.ipynb",
+         "MarkShowDoc": "mdx.ipynb",
+         "ExecuteShowDocPreprocessor": "mdx.ipynb",
          "get_mdx_exporter": "mdx.ipynb",
+         "nbrun": "run.ipynb",
+         "nbupdate": "run.ipynb",
+         "parallel_nbupdate": "run.ipynb",
+         "nbdoc_update": "run.ipynb",
          "is_valid_xml": "showdoc.ipynb",
          "param2JSX": "showdoc.ipynb",
          "np2jsx": "showdoc.ipynb",
@@ -28,6 +34,7 @@ index = {"nb2md": "convert.ipynb",
 
 modules = ["convert.py",
            "mdx.py",
+           "run.py",
            "showdoc.py"]
 
 doc_url = "https://outerbounds.github.io/nbdoc/"

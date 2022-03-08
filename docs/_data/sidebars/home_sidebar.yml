@@ -16,6 +16,9 @@ entries:
       title: Preprocessors For MDX
       url: mdx.html
     - output: web,pdf
+      title: Run Notebooks
+      url: run.html
+    - output: web,pdf
       title: JSX Representations Of Objects
       url: showdoc.html
     - output: web,pdf

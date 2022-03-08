@@ -23,7 +23,7 @@ This library consists of two cli tools as noted below.
     usage: nbdoc_build [-h] [--srcdir SRCDIR] [--force_all FORCE_ALL]
                        [--n_workers N_WORKERS] [--pause PAUSE]
     
-    Build the documentation by converting notebooks matching `fname` to html
+    Build the documentation by converting notebooks in `srcdir` to markdown
     
     optional arguments:
       -h, --help             show this help message and exit
@@ -31,6 +31,26 @@ This library consists of two cli tools as noted below.
                              recursively, can also be a filename.
       --force_all FORCE_ALL  Rebuild even notebooks that havent changed (default:
                              False)
+      --n_workers N_WORKERS  Number of workers to use
+      --pause PAUSE          Pause time (in secs) between notebooks to avoid race
+                             conditions (default: 0.5)
+
+
+### Run and Save Notebooks Inplace
+
+```python
+! nbdoc_update -h
+```
+
+    usage: nbdoc_update [-h] [--srcdir SRCDIR] [--n_workers N_WORKERS]
+                        [--pause PAUSE]
+    
+    Refresh all notebooks in `srcdir` by running them and saving them in place.
+    
+    optional arguments:
+      -h, --help             show this help message and exit
+      --srcdir SRCDIR        A directory of notebooks to refresh recursively, can
+                             also be a filename.
       --n_workers N_WORKERS  Number of workers to use
       --pause PAUSE          Pause time (in secs) between notebooks to avoid race
                              conditions (default: 0.5)

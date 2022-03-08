@@ -1,0 +1,66 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "029d3e70-fcd0-477f-be93-45f3f0b137cc",
+   "metadata": {},
+   "source": [
+    "This notebook has cells that haven't been executed"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "59a96793-4c50-416b-9288-5bd130b2ae20",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "from math import ceil\n",
+    "from metaflow import FlowSpec"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f7f4b2bb-9d96-4542-998c-9aba2f510964",
+   "metadata": {},
+   "source": [
+    "You should see this output"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b82eadf7-2aff-476b-8ecb-be7b45ce9604",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "print(f'You will see this: {ceil(3156.5)}')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.9.7 ('base')",
+   "language": "python",
+   "name": "python397jvsc74a57bd042fd40e048e0585f88ec242f050f7ef0895cf845a8dd1159352394e5826cd102"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
