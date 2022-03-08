@@ -14,6 +14,15 @@ from typing import Union
 from fastcore.all import Path, parallel, call_parse, L
 
 # Cell
+def _gen_nb():
+    "Generates a temporary notebook for testing."
+    p = Path('test_files/exec.txt')
+    newP = p.with_suffix('.ipynb')
+    text = p.read_text()
+    newP.write_text(text)
+    return newP
+
+# Cell
 def _get_kernel(nb):
     "Sees if kernelname exists otherwise uses the default of `python3`"
     nb_ks = nb.metadata.kernelspec.name
