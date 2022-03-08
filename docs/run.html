@@ -49,7 +49,7 @@ nb_path: "nbs/run.ipynb"
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="nbrun" class="doc_header"><code>nbrun</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/run.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>nbrun</code>(<strong><code>fname</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>])</p>
 </blockquote>
-<p>Execute notebook.</p>
+<p>Execute notebook and skip cells that have flags consistent <code>tst_flags</code> in settings.ini</p>
 
 </div>
 
@@ -77,8 +77,9 @@ nb_path: "nbs/run.ipynb"
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">_tmp_nb</span> <span class="o">=</span> <span class="n">_gen_nb</span><span class="p">()</span>
 <span class="k">assert</span> <span class="s1">&#39;3157&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_tmp_nb</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span> <span class="c1">#value does not exist before execution</span>
-<span class="n">_results</span> <span class="o">=</span> <span class="n">nbrun</span><span class="p">(</span><span class="n">_tmp_nb</span><span class="p">)</span>
-<span class="k">assert</span> <span class="s1">&#39;3157&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">_results</span><span class="p">)</span> <span class="c1"># value exists after execution</span>
+<span class="n">_results</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">nbrun</span><span class="p">(</span><span class="n">_tmp_nb</span><span class="p">))</span>
+<span class="k">assert</span> <span class="s1">&#39;3157&#39;</span> <span class="ow">in</span> <span class="n">_results</span> <span class="c1"># value exists after execution</span>
+<span class="k">assert</span> <span class="s1">&#39;98343 + 2&#39;</span> <span class="ow">in</span> <span class="n">_results</span> <span class="ow">and</span> <span class="s1">&#39;98345&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_results</span> <span class="c1"># cells with flags do not get executed</span>
 </pre></div>
 
     </div>

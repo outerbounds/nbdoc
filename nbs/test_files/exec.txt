@@ -40,6 +40,17 @@
    "source": [
     "print(f'You will see this: {ceil(3156.5)}')"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "11e1a227-2cab-4dc8-b86b-a48660ad9b12",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#notest\n",
+    "98343 + 2"
+   ]
   }
  ],
  "metadata": {

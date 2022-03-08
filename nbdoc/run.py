@@ -7,22 +7,22 @@ from os import sys
 import nbformat
 from nbformat.notebooknode import NotebookNode
 from nbclient.exceptions import CellExecutionError
-from nbclient import NotebookClient
+from nbdev.test import NoExportPreprocessor
 from nbdev.export import nbglob
 from typing import Union
 from fastcore.all import Path, parallel, call_parse, L
 
 # Cell
 def nbrun(fname:Union[str, Path]) -> NotebookNode:
-    "Execute notebook."
+    "Execute notebook and skip cells that have flags consistent `tst_flags` in settings.ini"
     file = Path(fname)
     assert file.name.endswith('.ipynb'), f'{str(fname)} is not a notebook.'
     assert file.is_file(), f'file {str(fname)} not found.'
     print(f"running: {str(file)}")
     nb = nbformat.read(file, as_version=4)
-    client = NotebookClient(nb, resources={'metadata': {'path': file.parent}})
-    client.execute()
-    return nb
+    exp = NoExportPreprocessor(flags=[])
+    pnb,_ = exp.preprocess(nb, resources={'metadata': {'path': file.parent}})
+    return pnb
 
 # Cell
 def nbupdate(fname:Union[str, Path]):
