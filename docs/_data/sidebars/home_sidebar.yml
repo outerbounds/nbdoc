@@ -10,9 +10,6 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Title
-      url: Untitled.html
-    - output: web,pdf
       title: Convert Notebooks To Markdown
       url: convert.html
     - output: web,pdf
