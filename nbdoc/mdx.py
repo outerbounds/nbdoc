@@ -181,7 +181,7 @@ class Black(Preprocessor):
     def preprocess_cell(self, cell, resources, index):
         tags = cell.metadata.get('tags', [])
         if cell.cell_type == 'code' and 'black' in tags:
-            cell.source = format_str(src_contents=cell.source, mode=black_mode)
+            cell.source = format_str(src_contents=cell.source, mode=black_mode).strip()
         return cell, resources
 
 # Cell
