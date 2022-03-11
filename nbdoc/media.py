@@ -36,7 +36,7 @@ class ImageSave(Preprocessor):
                 dest = Path(nb_path)/f'_{nb_name}_files/{k}'
                 dest.parent.mkdir(exist_ok=True)
                 dest.write_bytes(v)
-                resources['fmap'][f'{k}'] = str(dest)
+                resources['fmap'][f'{k}'] = f'_{nb_name}_files/{k}'
         return nb, resources
 
 class ImagePath(Preprocessor):
