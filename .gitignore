@@ -15,6 +15,7 @@ tags
 _notes.ipynb
 nbs/test_files/exec.ipynb
 nbs/test_files/black_test.py
+nbs/test_files/_*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

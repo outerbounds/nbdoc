@@ -3,8 +3,10 @@
     "Overview": "/",
     "Convert Notebooks To Markdown": "convert.html",
     "Preprocessors For MDX": "mdx.html",
+    "Convert HTML and Images to MDX": "media.html",
     "Run Notebooks": "run.html",
     "JSX Representations Of Objects": "showdoc.html",
-    "Testing Notebooks": "test.html"
+    "Testing Notebooks": "test.html",
+    "Internal Testing Utilities": "test_utils.html"
   }
 }
