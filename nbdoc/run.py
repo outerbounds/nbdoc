@@ -11,7 +11,10 @@ from nbclient.exceptions import CellExecutionError
 from nbdev.test import NoExportPreprocessor
 from nbdev.export import nbglob
 from typing import Union
-from fastcore.all import Path, parallel, call_parse, L
+from fastcore.parallel import parallel
+from fastcore.script import call_parse
+from fastcore.foundation import L
+from fastcore.xtras import Path
 
 # Cell
 def _gen_nb():

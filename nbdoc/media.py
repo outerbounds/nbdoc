@@ -3,9 +3,8 @@
 __all__ = ['HTMLEscape', 'ImageSave', 'ImagePath']
 
 # Cell
-from .test_utils import run_preprocessor
 from nbconvert.preprocessors import Preprocessor
-from fastcore.all import Path
+from fastcore.xtras import Path
 
 # Cell
 class HTMLEscape(Preprocessor):

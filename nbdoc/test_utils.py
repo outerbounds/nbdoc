@@ -5,7 +5,7 @@ __all__ = ['run_preprocessor', 'show_plain_md']
 # Cell
 from nbconvert import MarkdownExporter
 from traitlets.config import Config
-from fastcore.all import Path
+from fastcore.xtras import Path
 
 # Cell
 def run_preprocessor(pp, nbfile, template_file='ob.tpl', display_results=False):

@@ -6,18 +6,14 @@ __all__ = ['InjectMeta', 'StripAnsi', 'InsertWarning', 'RmEmptyCode', 'MetaflowT
 
 # Cell
 from nbconvert.preprocessors import Preprocessor
-from nbconvert import MarkdownExporter, NotebookExporter
+from nbconvert import MarkdownExporter
 from nbconvert.preprocessors import TagRemovePreprocessor
 from nbdev.imports import get_config
-import traitlets
 from traitlets.config import Config
 from pathlib import Path
-import re, os, json, uuid
-from nbdev.export import read_nb, check_re_multi
-from fastcore.all import AttrDict
-from .run import _gen_nb
+import re, uuid
+from fastcore.basics import AttrDict
 from .media import ImagePath, ImageSave, HTMLEscape
-from .test_utils import run_preprocessor, show_plain_md
 from black import format_str, Mode
 
 # Cell
@@ -200,12 +196,12 @@ class CatFiles(Preprocessor):
 # Cell
 class BashIdentify(Preprocessor):
     """A preprocessor to identify bash commands and mark them appropriately"""
-    pattern = '^\s*!'
+    pattern = re.compile('^\s*!', flags=re.MULTILINE)
 
     def preprocess_cell(self, cell, resources, index):
-        if cell.cell_type == 'code' and re.search(self.pattern, cell.source):
+        if cell.cell_type == 'code' and self.pattern.search(cell.source):
             cell.metadata.magics_language = 'bash'
-            cell.source = re.sub(self.pattern, '', cell.source).strip()
+            cell.source = self.pattern.sub('', cell.source).strip()
         return cell, resources
 
 # Cell

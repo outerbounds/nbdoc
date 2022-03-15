@@ -4,10 +4,10 @@ __all__ = ['is_valid_xml', 'param2JSX', 'np2jsx', 'fmt_sig_param', 'get_sig_sect
            'ShowDoc']
 
 # Cell
-from numpydoc.docscrape import NumpyDocString,ClassDoc, FunctionDoc, Parameter
-from fastcore.all import test_eq, get_source_link, test
+from numpydoc.docscrape import ClassDoc, FunctionDoc, Parameter
+from fastcore.xtras import get_source_link
 from xml.etree import ElementTree as et
-import inspect, functools, warnings
+import inspect, warnings
 from nbdev.showdoc import get_config
 
 # Cell
