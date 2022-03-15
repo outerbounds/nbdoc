@@ -47,7 +47,72 @@ nb_path: "nbs/media.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="HTMLEscape" class="doc_header"><code>class</code> <code>HTMLEscape</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/media.py#L10" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>HTMLEscape</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="HTMLdf" class="doc_header"><code>class</code> <code>HTMLdf</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/media.py#L11" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>HTMLdf</code>(<strong><code>convert_charrefs</code></strong>=<em><code>True</code></em>) :: <code>HTMLParser</code></p>
+</blockquote>
+<p>HTML Parser that finds a dataframe.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_test_html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;div&gt;</span>
+<span class="s2">&lt;style scoped&gt;</span>
+<span class="s2">    .dataframe tbody tr th:only-of-type {</span>
+<span class="s2">        vertical-align: middle;</span>
+<span class="s2">    }</span>
+
+<span class="s2">    .dataframe tbody tr th {</span>
+<span class="s2">        vertical-align: top;</span>
+<span class="s2">    }</span>
+
+<span class="s2">    .dataframe thead th {</span>
+<span class="s2">        text-align: right;</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;&quot;&quot;&quot;</span>
+
+<span class="k">assert</span> <span class="n">HTMLdf</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">_test_html</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">HTMLdf</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;&lt;div&gt;&lt;/div&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="HTMLEscape" class="doc_header"><code>class</code> <code>HTMLEscape</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/media.py#L35" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>HTMLEscape</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Place HTML in a codeblock and surround it with a <HTMLOutputBlock> component.</p>
 
@@ -83,7 +148,7 @@ nb_path: "nbs/media.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">HTMLEscape</span><span class="p">],</span> <span class="s1">&#39;test_files/pandas.ipynb&#39;</span><span class="p">,</span> <span class="n">display_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">assert</span> <span class="s1">&#39;&lt;HTMLOutputBlock&gt;&#39;</span> <span class="ow">in</span> <span class="n">c</span> <span class="ow">and</span> <span class="s1">&#39;&lt;/HTMLOutputBlock&gt;&#39;</span> <span class="ow">in</span> <span class="n">c</span>
+<span class="k">assert</span> <span class="s1">&#39;&lt;HTMLOutputBlock&#39;</span> <span class="ow">in</span> <span class="n">c</span> <span class="ow">and</span> <span class="s1">&#39;&lt;/HTMLOutputBlock&gt;&#39;</span> <span class="ow">in</span> <span class="n">c</span>
 <span class="k">assert</span> <span class="s1">&#39;```html</span><span class="se">\n</span><span class="s1">&lt;div&gt;&#39;</span> <span class="ow">in</span> <span class="n">c</span> <span class="ow">and</span> <span class="s1">&#39;&lt;/div&gt;</span><span class="se">\n</span><span class="s1">```&#39;</span> <span class="ow">in</span> <span class="n">c</span>
 </pre></div>
 
@@ -103,7 +168,7 @@ pd.read_csv(&#39;https://github.com/outerbounds/.data/raw/main/hospital_readmiss
 ```
 
 
-&lt;HTMLOutputBlock&gt;
+&lt;HTMLOutputBlock center=&#34;False&#34;&gt;
 
 
 
@@ -265,7 +330,7 @@ pd.read_csv(&#39;https://github.com/outerbounds/.data/raw/main/hospital_readmiss
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ImageSave" class="doc_header"><code>class</code> <code>ImageSave</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/media.py#L25" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ImageSave</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="ImageSave" class="doc_header"><code>class</code> <code>ImageSave</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/media.py#L51" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ImageSave</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Saves images stored as bytes in notebooks to disk.</p>
 
@@ -290,7 +355,7 @@ pd.read_csv(&#39;https://github.com/outerbounds/.data/raw/main/hospital_readmiss
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ImagePath" class="doc_header"><code>class</code> <code>ImagePath</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/media.py#L41" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ImagePath</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
+<h2 id="ImagePath" class="doc_header"><code>class</code> <code>ImagePath</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/media.py#L67" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ImagePath</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>) :: <code>Preprocessor</code></p>
 </blockquote>
 <p>Changes the image path to the location where <a href="/nbdoc/media.html#ImageSave"><code>ImageSave</code></a> saved the files.</p>
 

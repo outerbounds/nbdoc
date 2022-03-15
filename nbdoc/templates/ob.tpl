@@ -10,7 +10,7 @@
 {%- block output_group -%}
 {%- if cell.metadata.html_output  %}
 
-<HTMLOutputBlock>
+<HTMLOutputBlock center="{{ cell.metadata.html_center }}">
 {{ super() }}
 </HTMLOutputBlock>
 {%- else  -%}

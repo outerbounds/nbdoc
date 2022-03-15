@@ -95,6 +95,7 @@ def get_sig_section(obj, spoofstr=None):
 def get_type(obj):
     "Return type of object as a either 'method', 'function', 'class' or `None`."
     typ = None
+    if inspect.ismethod(obj): return 'method'
     if _is_func(obj):
         try:
             sig = inspect.signature(obj)
@@ -116,7 +117,13 @@ def get_base_urls(warn=False, param='module_baseurls') -> dict:
 
 # Cell
 class ShowDoc:
-    def __init__(self, obj, hd_lvl=None, name=None, objtype=None, decorator=False):
+    def __init__(self, obj,
+                 hd_lvl=None, # override heading level
+                 name=None, # override name of object ex: '@mydecorator'
+                 objtype=None, # override type of object. ex: 'decorator'
+                 module_nm=None, #override module name. ex: 'fastai.vision'
+                 decorator=False #same as setting `objtype` = 'decorator'
+                ):
         "Construct the html and JSX representation for a particular object."
         if decorator: objtype = 'decorator'
         self.obj = obj
@@ -124,8 +131,10 @@ class ShowDoc:
         self.typ = get_type(obj) if not objtype else objtype
         if not self.typ: raise ValueError(f'Can only parse a class or a function, but got a {type(obj)}')
         self.npdocs = np2jsx(obj)
+        if name and decorator:
+            if not name.startswith('@'): name = '@' + name
         self.objnm = obj.__name__ if not name else name
-        self.modnm = inspect.getmodule(obj).__name__
+        self.modnm = inspect.getmodule(obj).__name__ if not module_nm else module_nm
 
         if hd_lvl: self.hd_lvl = hd_lvl
         elif self.typ == 'method': self.hd_lvl = 4
@@ -142,6 +151,7 @@ class ShowDoc:
         hd_prefix = f'<h{self.hd_lvl}> <code>{self.typ}</code> <span style="color:Brown">{self.objnm}</span> <em>{self._html_signature}</em>'
         if self.src_link: hd_prefix += f'<a href="{self.src_link}" style="float:right">[source]</a>'
         hd_prefix += f'</h{self.hd_lvl}>'
+        hd_prefix += f'<strong>{self.modnm}</strong>'
         if self._html_docstring: hd_prefix += f'<p>{self._html_docstring}</p>'
         return hd_prefix
 
@@ -163,7 +173,7 @@ class ShowDoc:
     @property
     def jsx(self):
         "Returns the JSX components."
-        nm = f'<DocSection type="{self.typ}" name="{self.objnm}" module="{self.modnm}"{self._src_link_attr}>'
+        nm = f'<DocSection type="{self.typ}" name="{self.objnm}" module="{self.modnm}" heading_level="{self.hd_lvl}"{self._src_link_attr}>'
         spoof = '...' if self.decorator else None
         sp = get_sig_section(self.obj, spoofstr=spoof)
         return f'{nm}\n{sp}\n{self.npdocs}\n</DocSection>'
