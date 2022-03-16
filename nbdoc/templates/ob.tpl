@@ -9,8 +9,12 @@
 
 {%- block output_group -%}
 {%- if cell.metadata.html_output  %}
-
-<HTMLOutputBlock center="{{ cell.metadata.html_center }}">
+    {%- if cell.metadata.html_center  -%}
+        {%- set center_attr = 'center' -%}
+    {%- else -%}
+        {%- set center_attr = '' -%}
+    {%- endif %}    
+<HTMLOutputBlock {{ center_attr }}>
 {{ super() }}
 </HTMLOutputBlock>
 {%- else  -%}
