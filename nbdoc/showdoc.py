@@ -9,6 +9,7 @@ from fastcore.xtras import get_source_link
 from xml.etree import ElementTree as et
 import inspect, warnings
 from nbdev.showdoc import get_config
+from functools import partial
 
 # Cell
 _ATTRS_PARAMS=['Parameters', 'Attributes', 'Returns', 'Yields', 'Raises'] # These have parameters
@@ -116,6 +117,35 @@ def get_base_urls(warn=False, param='module_baseurls') -> dict:
     return dict([b.split('=', 1) for b in cfg.module_baseurls.split('\n')])
 
 # Cell
+#hide
+def _get_name(var):
+    try:
+        callers_local_vars = inspect.currentframe().f_back.f_back.f_back.f_locals.items()
+        return [var_name for var_name, var_val in callers_local_vars if var_val is var][0]
+    except:
+        return None
+
+# Cell
+#hide
+def _get_mf_obj(obj):
+    "Get decorator partials for Metaflow."
+    if type(obj) == partial and hasattr(obj, 'args'):
+        args=getattr(obj, 'args')
+        if args:
+            arg = args[0]
+            if hasattr(arg, '__name__'):
+                nm = arg.__name__
+                if nm and 'decorator' in nm.lower():
+                    newnm = _get_name(obj)
+                    arg.__newname__ = newnm if newnm else nm
+                    arg.__ismfdecorator__ = True
+                    return arg
+        else:
+            return obj.func
+    else:
+        return obj
+
+# Cell
 class ShowDoc:
     def __init__(self, obj,
                  hd_lvl=None, # override heading level
@@ -126,15 +156,20 @@ class ShowDoc:
                 ):
         "Construct the html and JSX representation for a particular object."
         if decorator: objtype = 'decorator'
-        self.obj = obj
+        self.obj = _get_mf_obj(obj)
+        #special handling for metaflow decorators
+        if hasattr(self.obj, '__ismfdecorator__'):
+            decorator = True
+            objtype = 'decorator'
+            name = self.obj.__newname__
         self.decorator = decorator
-        self.typ = get_type(obj) if not objtype else objtype
-        if not self.typ: raise ValueError(f'Can only parse a class or a function, but got a {type(obj)}')
-        self.npdocs = np2jsx(obj)
+        self.typ = get_type(self.obj) if not objtype else objtype
+        if not self.typ: raise ValueError(f'Can only parse a class or a function, but got a {type(self.obj)}')
+        self.npdocs = np2jsx(self.obj)
         if name and decorator:
             if not name.startswith('@'): name = '@' + name
-        self.objnm = obj.__name__ if not name else name
-        self.modnm = inspect.getmodule(obj).__name__ if not module_nm else module_nm
+        self.objnm = self.obj.__name__ if not name else name
+        self.modnm = inspect.getmodule(self.obj).__name__ if not module_nm else module_nm
 
         if hd_lvl: self.hd_lvl = hd_lvl
         elif self.typ == 'method': self.hd_lvl = 4
