@@ -13,6 +13,9 @@ entries:
       title: Convert Notebooks To Markdown
       url: convert.html
     - output: web,pdf
+      title: docindex
+      url: docindex.html
+    - output: web,pdf
       title: Preprocessors For MDX
       url: mdx.html
     - output: web,pdf

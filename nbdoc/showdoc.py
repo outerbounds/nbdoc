@@ -168,7 +168,10 @@ class ShowDoc:
         self.npdocs = np2jsx(self.obj)
         if name and decorator:
             if not name.startswith('@'): name = '@' + name
-        self.objnm = self.obj.__name__ if not name else name
+
+        default_nm = self.obj.__qualname__ if self.typ == 'method' else self.obj.__name__
+        self.objnm = default_nm if not name else name
+
         self.modnm = inspect.getmodule(self.obj).__name__ if not module_nm else module_nm
 
         if hd_lvl: self.hd_lvl = hd_lvl

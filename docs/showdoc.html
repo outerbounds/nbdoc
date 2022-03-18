@@ -1034,9 +1034,9 @@ bool
 
 
 <div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
-<h4> <code>method</code> <span style="color:Brown">example_method</span> <em>(self, param1, param2)</em></h4><strong>test_lib.example</strong><p><blockquote>Class&nbsp;methods&nbsp;are&nbsp;similar&nbsp;to&nbsp;regular&nbsp;functions.<br><br>Note<br>----<br>Do&nbsp;not&nbsp;include&nbsp;the&nbsp;`self`&nbsp;parameter&nbsp;in&nbsp;the&nbsp;``Parameters``&nbsp;section.<br><br>Parameters<br>----------<br>param1<br>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;parameter.<br>param2<br>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;second&nbsp;parameter.<br><br>Returns<br>-------<br>bool<br>&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;successful,&nbsp;False&nbsp;otherwise.</blockquote></p>
+<h4> <code>method</code> <span style="color:Brown">ExampleClass.example_method</span> <em>(self, param1, param2)</em></h4><strong>test_lib.example</strong><p><blockquote>Class&nbsp;methods&nbsp;are&nbsp;similar&nbsp;to&nbsp;regular&nbsp;functions.<br><br>Note<br>----<br>Do&nbsp;not&nbsp;include&nbsp;the&nbsp;`self`&nbsp;parameter&nbsp;in&nbsp;the&nbsp;``Parameters``&nbsp;section.<br><br>Parameters<br>----------<br>param1<br>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;parameter.<br>param2<br>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;second&nbsp;parameter.<br><br>Returns<br>-------<br>bool<br>&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;successful,&nbsp;False&nbsp;otherwise.</blockquote></p>
 </HTMLRemove>
-<DocSection type="method" name="example_method" module="test_lib.example" heading_level="4">
+<DocSection type="method" name="ExampleClass.example_method" module="test_lib.example" heading_level="4">
 <SigArgSection>
 <SigArg name="self" /><SigArg name="param1" /><SigArg name="param2" />
 </SigArgSection>
@@ -1072,8 +1072,7 @@ bool
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fastcore.test</span> <span class="kn">import</span> <span class="n">test_eq</span>
-<span class="n">ShowDoc</span><span class="p">(</span><span class="n">test_eq</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowDoc</span><span class="p">(</span><span class="n">test_eq</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1107,11 +1106,93 @@ bool
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="/nbdoc/showdoc.html#ShowDoc.jsx"><code>ShowDoc.jsx</code></a> extracts JSX Markup about an object so that you can use it for code documentation.  Here are some examples:</p>
+<p>As a debugging tool, <a href="/nbdoc/showdoc.html#ShowDoc.jsx"><code>ShowDoc.jsx</code></a> extracts JSX Markup about an object so that you can use it for code documentation.  Here are some examples:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_result</span> <span class="o">=</span> <span class="n">ShowDoc</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">ExampleClass</span><span class="p">)</span><span class="o">.</span><span class="n">jsx</span>
+<span class="k">assert</span> <span class="n">is_valid_xml</span><span class="p">(</span><span class="n">_result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">_result</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;DocSection type=&#34;class&#34; name=&#34;ExampleClass&#34; module=&#34;test_lib.example&#34; heading_level=&#34;3&#34;&gt;
+&lt;SigArgSection&gt;
+&lt;SigArg name=&#34;param1&#34; /&gt;&lt;SigArg name=&#34;param2&#34; /&gt;&lt;SigArg name=&#34;param3&#34; /&gt;
+&lt;/SigArgSection&gt;
+&lt;Description summary=&#34;The summary line for a class docstring should fit on one line.&#34; extended_summary=&#34;If the class has public attributes, they may be documented here\nin an ``Attributes`` section and follow the same formatting as a\nfunction&#39;s ``Args`` section. Alternatively, attributes may be documented\ninline with the attribute&#39;s declaration (see __init__ method below).\n\nProperties created with the ``@property`` decorator should be documented\nin the property&#39;s getter method.&#34; /&gt;
+&lt;ParamSection name=&#34;Attributes&#34;&gt;
+	&lt;Parameter name=&#34;attr1&#34; type=&#34;str&#34; desc=&#34;Description of `attr1`.&#34; /&gt;
+	&lt;Parameter name=&#34;attr2&#34; type=&#34;:obj:`int`, optional&#34; desc=&#34;Description of `attr2`.&#34; /&gt;
+&lt;/ParamSection&gt;
+&lt;/DocSection&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_result</span> <span class="o">=</span> <span class="n">ShowDoc</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">Foo</span><span class="p">)</span><span class="o">.</span><span class="n">jsx</span>
+<span class="k">assert</span> <span class="n">is_valid_xml</span><span class="p">(</span><span class="n">_result</span><span class="p">)</span>
+<span class="k">assert</span> <span class="s1">&#39;link&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">_result</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;DocSection type=&#34;class&#34; name=&#34;Foo&#34; module=&#34;test_lib.example&#34; heading_level=&#34;3&#34;&gt;
+&lt;SigArgSection&gt;
+&lt;SigArg name=&#34;a&#34; type=&#34;int&#34; /&gt;&lt;SigArg name=&#34;b&#34; type=&#34;str&#34; default=&#34;foo&#34; /&gt;&lt;SigArg name=&#34;c&#34; type=&#34;float&#34; default=&#34;0.1&#34; /&gt;&lt;SigArg name=&#34;*args&#34; /&gt;&lt;SigArg name=&#34;**tags&#34; /&gt;
+&lt;/SigArgSection&gt;
+
+
+&lt;/DocSection&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 </div>
  
 

@@ -5,6 +5,8 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 index = {"nb2md": "convert.ipynb",
          "parallel_nb2md": "convert.ipynb",
          "nbdoc_build": "convert.ipynb",
+         "build_index": "docindex.ipynb",
+         "mdglob": "docindex.ipynb",
          "InjectMeta": "mdx.ipynb",
          "StripAnsi": "mdx.ipynb",
          "InsertWarning": "mdx.ipynb",
@@ -41,6 +43,7 @@ index = {"nb2md": "convert.ipynb",
          "show_plain_md": "test_utils.ipynb"}
 
 modules = ["convert.py",
+           "docindex.py",
            "mdx.py",
            "media.py",
            "run.py",
