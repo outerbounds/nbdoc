@@ -2,6 +2,7 @@
   "nbdoc": {
     "Overview": "/",
     "Convert Notebooks To Markdown": "convert.html",
+    "docindex": "docindex.html",
     "Preprocessors For MDX": "mdx.html",
     "Convert HTML and Images to MDX": "media.html",
     "Run Notebooks": "run.html",
