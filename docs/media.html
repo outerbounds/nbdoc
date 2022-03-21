@@ -436,6 +436,24 @@ plt.plot(range(10), range(10))
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_preprocessor</span><span class="p">([</span><span class="n">ImageSave</span><span class="p">,</span> <span class="n">ImagePath</span><span class="p">],</span> <span class="s1">&#39;test_files/altair_jpeg.ipynb&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="s1">&#39;![svg](_altair_jpeg_files/output_0_0.svg&#39;</span> <span class="ow">in</span> <span class="n">c</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 </div>
  
 
