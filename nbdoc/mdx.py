@@ -128,7 +128,7 @@ class MetaflowSelectSteps(Preprocessor):
                         found_steps = re.compile(self.re_step.format(s)).findall(o['text'])
                         if found_steps:
                             final_steps += found_steps + ['...']
-                    o['text'] = '\n'.join(final_steps)
+                    o['text'] = '\n'.join(['...'] + final_steps)
         return cell, resources
 
 # Cell
