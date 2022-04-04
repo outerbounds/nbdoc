@@ -166,8 +166,6 @@ class ShowDoc:
         self.typ = get_type(self.obj) if not objtype else objtype
         if not self.typ: raise ValueError(f'Can only parse a class or a function, but got a {type(self.obj)}')
         self.npdocs = np2jsx(self.obj)
-        if name and decorator:
-            if not name.startswith('@'): name = '@' + name
 
         default_nm = self.obj.__qualname__ if self.typ == 'method' else self.obj.__name__
         self.objnm = default_nm if not name else name
@@ -186,7 +184,9 @@ class ShowDoc:
     @property
     def nbhtml(self):
         "HTML to be shown in the notebook"
-        hd_prefix = f'<h{self.hd_lvl}> <code>{self.typ}</code> <span style="color:Brown">{self.objnm}</span> <em>{self._html_signature}</em>'
+        name=self.objnm
+        if self.decorator and not name.startswith('@'):name = '@' + name
+        hd_prefix = f'<h{self.hd_lvl}> <code>{self.typ}</code> <span style="color:Brown">{name}</span> <em>{self._html_signature}</em>'
         if self.src_link: hd_prefix += f'<a href="{self.src_link}" style="float:right">[source]</a>'
         hd_prefix += f'</h{self.hd_lvl}>'
         hd_prefix += f'<strong>{self.modnm}</strong>'
