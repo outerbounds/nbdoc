@@ -1,0 +1,13 @@
+{
+    "function_with_pep484_type_annotations": "https://outerbounds.github.io/nbdoc/custom/pathfor/site",
+    "@batch": "https://outerbounds.github.io/nbdoc/decorators",
+    "@card": "https://outerbounds.github.io/nbdoc/decorators",
+    "@catch": "https://outerbounds.github.io/nbdoc/decorators",
+    "@conda": "https://outerbounds.github.io/nbdoc/decorators",
+    "@kubernetes": "https://outerbounds.github.io/nbdoc/decorators",
+    "@parallel": "https://outerbounds.github.io/nbdoc/decorators",
+    "@project": "https://outerbounds.github.io/nbdoc/decorators",
+    "@resources": "https://outerbounds.github.io/nbdoc/decorators",
+    "@step": "https://outerbounds.github.io/nbdoc/decorators",
+    "function_with_types_in_docstring": "https://outerbounds.github.io/nbdoc/test_docs"
+}
