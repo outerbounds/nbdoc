@@ -98,7 +98,7 @@ This library consists of two cli tools as noted below.
     optional arguments:
       -h, --help         show this help message and exit
       --local            Whether or not to build an index based on local documents
-                         (default: False)
+                         (default: True)
       --md_path MD_PATH  Root path to search recursively containing markdown files
                          to linkify
 
