@@ -24,7 +24,11 @@
         {%- set lang = nb.metadata.language_info.name -%}
     {%- endif %}
 <CodeOutputBlock lang="{{ lang }}">
-{{ super() }}
+
+```
+{{ super().strip() }}
+```
+
 </CodeOutputBlock>
 {%- endif %}
 {% endblock output_group %}
