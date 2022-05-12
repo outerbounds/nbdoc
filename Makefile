@@ -14,6 +14,11 @@ test:
 	nbdev_test_nbs
 
 
+nbdev-all:
+	nbdev_clean_nbs
+	nbdev_build_lib
+	nbdev_test_nbs
+
 release:
 	nbdev_clean_nbs
 	nbdev_build_lib
