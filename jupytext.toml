@@ -1,0 +1,2 @@
+formats = "nbs///ipynb,nbdoc///py:percent"
+comment_out_non_nbdev_exported_cells = true
