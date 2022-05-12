@@ -12,7 +12,7 @@ import sys
 from collections import Counter
 
 # Cell
-_re_fm = re.compile(r'^---\s*(.*?)---\s*$', flags=re.DOTALL | re.MULTILINE)
+_re_fm = re.compile(r'^---\s*(.*?)---\s*', flags=re.DOTALL)
 
 
 def _load_yml(yml):
@@ -23,8 +23,10 @@ def get_meta(fname:str):
     "get metadata and front matter from `fname`."
     txt = Path(fname).read_text()
     fm = _re_fm.findall(txt)
+    ignore = 'nbdoc-seo-ignore' in txt
     n_words = len(_re_fm.sub('', txt).split())
-    return merge(dict(fname=fname, n_words=n_words), _load_yml(fm[0]) if fm else {})
+    if not ignore:
+        return merge(dict(fname=fname, n_words=n_words), _load_yml(fm[0]) if fm else {})
 
 # Cell
 def meta_list(srcdir:str):
@@ -32,7 +34,7 @@ def meta_list(srcdir:str):
     docs = globtastic(srcdir, file_glob='*.md',
                       skip_folder_re='^[.]',
                       skip_file_re='^[_.]')
-    return docs.map(get_meta)
+    return docs.map(get_meta).filter()
 
 # Cell
 def find_dupe(srcdir:str, key):
