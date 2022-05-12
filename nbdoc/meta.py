@@ -14,7 +14,9 @@ import sys
 _re_fm = re.compile(r'^---\s*(.*?)---\s*$', flags=re.DOTALL | re.MULTILINE)
 
 
-def _load_yml(yml): return yaml.load(yml, Loader=yaml.FullLoader)
+def _load_yml(yml):
+    if not yml: return {}
+    else: return yaml.load(yml, Loader=yaml.FullLoader)
 
 def get_meta(fname:str):
     "get metadata and front matter from `fname`."
