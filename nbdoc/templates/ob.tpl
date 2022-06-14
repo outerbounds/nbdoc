@@ -26,7 +26,7 @@
 <CodeOutputBlock lang="{{ lang }}">
 
 ```
-{{ super().strip() }}
+{{ super().strip('\n') }}
 ```
 
 </CodeOutputBlock>
