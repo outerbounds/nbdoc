@@ -206,6 +206,53 @@ optional arguments:
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Automatically-Attach-Links-To-APIs-in-Backticks">Automatically Attach Links To APIs in Backticks<a class="anchor-link" href="#Automatically-Attach-Links-To-APIs-in-Backticks"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> nbdoc_linkify --help
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>usage: nbdoc_linkify [-h] [--local] [--md_path MD_PATH]
+
+Convert names in `backticks` in markdown files that have been documented with
+nbdoc.showdoc.ShowDoc to appropriate links.
+
+optional arguments:
+  -h, --help         show this help message and exit
+  --local            Whether or not to build an index based on local documents
+                     (default: True)
+  --md_path MD_PATH  Root path to search recursively containing markdown files
+                     to linkify
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Documentation">Documentation<a class="anchor-link" href="#Documentation"> </a></h2><p>Documentation <a href="https://outerbounds.github.io/nbdoc/">can be found here</a>.</p>
 <h2 id="References">References<a class="anchor-link" href="#References"> </a></h2><p>nbdoc is built with <a href="https://github.com/fastai/nbdev">nbdev</a>.  Furthermore, much of the code in this project is re-purposed from nbdev directly.</p>
 
@@ -213,5 +260,5 @@ optional arguments:
 </div>
 </div>
 </div>
- 
+
 

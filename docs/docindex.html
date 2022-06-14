@@ -40,6 +40,13 @@ nb_path: "nbs/docindex.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -47,7 +54,7 @@ nb_path: "nbs/docindex.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_index" class="doc_header"><code>build_index</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L18" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_index</code>(<strong><code>path</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="build_index" class="doc_header"><code>build_index</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L34" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_index</code>(<strong><code>path</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Build an index of names generated with <a href="/nbdoc/showdoc.html#ShowDoc"><code>ShowDoc</code></a> to document paths.</p>
 
@@ -176,6 +183,13 @@ key: value
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is how the index looks:</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -183,17 +197,271 @@ key: value
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">build_index</span><span class="p">(</span><span class="s1">&#39;test_files/&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s1">&#39;function_with_pep484_type_annotations&#39;</span><span class="p">:</span> <span class="s1">&#39;https://outerbounds.github.io/nbdoc/custom/pathfor/site&#39;</span><span class="p">,</span>
-                                     <span class="s1">&#39;function_with_types_in_docstring&#39;</span><span class="p">:</span> <span class="s1">&#39;https://outerbounds.github.io/nbdoc/_md_files/test_docs&#39;</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">build_index</span><span class="p">(</span><span class="s1">&#39;test_files/&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;function_with_pep484_type_annotations&#39;: &#39;https://outerbounds.github.io/nbdoc/custom/pathfor/site#function_with_pep484_type_annotations&#39;,
+ &#39;@batch&#39;: &#39;https://outerbounds.github.io/nbdoc/_md_files/decorators#@batch&#39;,
+ &#39;@card&#39;: &#39;https://outerbounds.github.io/nbdoc/_md_files/decorators#@card&#39;,
+ &#39;@catch&#39;: &#39;https://outerbounds.github.io/nbdoc/_md_files/decorators#@catch&#39;,
+ &#39;@conda&#39;: &#39;https://outerbounds.github.io/nbdoc/_md_files/decorators#@conda&#39;,
+ &#39;@kubernetes&#39;: &#39;https://outerbounds.github.io/nbdoc/_md_files/decorators#@kubernetes&#39;,
+ &#39;@parallel&#39;: &#39;https://outerbounds.github.io/nbdoc/_md_files/decorators#@parallel&#39;,
+ &#39;@project&#39;: &#39;https://outerbounds.github.io/nbdoc/_md_files/decorators#@project&#39;,
+ &#39;@resources&#39;: &#39;https://outerbounds.github.io/nbdoc/_md_files/decorators#@resources&#39;,
+ &#39;@step&#39;: &#39;https://outerbounds.github.io/nbdoc/_md_files/decorators#@step&#39;,
+ &#39;function_with_types_in_docstring&#39;: &#39;https://outerbounds.github.io/nbdoc/_md_files/test_docs#function_with_types_in_docstring&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_idx" class="doc_header"><code>get_idx</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L66" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_idx</code>(<strong><code>url</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="NbdevLookup" class="doc_header"><code>class</code> <code>NbdevLookup</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L68" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>NbdevLookup</code>(<strong><code>local</code></strong>=<em><code>True</code></em>, <strong><code>md_path</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+<p>Mapping from symbol names to URLs with docs</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="/nbdoc/docindex.html#NbdevLookup"><code>NbdevLookup</code></a> can help you linkify markdown.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is an example of a file before linkifying it:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">_backticks_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hey I am going to see what happens when we have things like `@conda` and `@batch`, but you will not convert conda to a link because it isn&#39;t in back ticks.
+
+If something isn&#39;t in the index like `@lorem`, nothing will happen.
+
+```py
+In code fences you will not convert links `@conda`
+```
+
+# Some other md
+
+this is another test: `function_with_types_in_docstring`
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And after linkifying it:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nl</span> <span class="o">=</span> <span class="n">NbdevLookup</span><span class="p">(</span><span class="n">md_path</span><span class="o">=</span><span class="s1">&#39;test_files/_md_files/&#39;</span><span class="p">)</span>
+<span class="n">nl</span><span class="o">.</span><span class="n">update_markdown</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Updating: test_files/_md_files/front_matter2.md
+Updating: test_files/_md_files/backticks.md
+Updating: test_files/_md_files/front_matter_test_docs.md
+Updating: test_files/_md_files/front_matter3.md
+Updating: test_files/_md_files/decorators.md
+Updating: test_files/_md_files/test_docs.md
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">_backticks_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hey I am going to see what happens when we have things like [@conda](https://outerbounds.github.io/nbdoc/decorators#@conda) and [@batch](https://outerbounds.github.io/nbdoc/decorators#@batch), but you will not convert conda to a link because it isn&#39;t in back ticks.
+
+If something isn&#39;t in the index like `@lorem`, nothing will happen.
+
+```py
+In code fences you will not convert links `@conda`
+```
+
+# Some other md
+
+this is another test: [function_with_types_in_docstring](https://outerbounds.github.io/nbdoc/test_docs#function_with_types_in_docstring)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="nbdoc_linkify" class="doc_header"><code>nbdoc_linkify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L112" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>nbdoc_linkify</code>(<strong><code>local</code></strong>:"Whether or not to build an index based on local documents", <strong><code>md_path</code></strong>:"Root path to search recursively containing markdown files to linkify"=<em><code>None</code></em>)</p>
+</blockquote>
+<p>Convert names in <code>backticks</code> in markdown files that have been documented with nbdoc.showdoc.ShowDoc to appropriate links.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 </div>
     {% endraw %}
 
 </div>
- 
+
 
