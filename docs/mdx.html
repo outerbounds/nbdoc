@@ -1143,7 +1143,7 @@ print(&#39;the output is removed, so you can only see the print statement.&#39;)
         <span class="k">if</span> <span class="s1">&#39;outputs&#39;</span> <span class="ow">in</span> <span class="n">cell</span> <span class="ow">and</span> <span class="n">n</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">cell</span><span class="o">.</span><span class="n">outputs</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;stdout&#39;</span><span class="p">:</span>
-                    <span class="n">o</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">o</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[:</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+                    <span class="n">o</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">o</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[:</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;...&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">cell</span><span class="p">,</span> <span class="n">resources</span>
 </pre></div>
 
@@ -1171,6 +1171,7 @@ print(&#39;the output is removed, so you can only see the print statement.&#39;)
 <span class="s2">    hello</span>
 <span class="s2">    hello</span>
 <span class="s2">    hello</span>
+<span class="s2">    ...</span>
 <span class="s2">```&quot;&quot;&quot;</span>
 <span class="k">assert</span> <span class="n">_res</span> <span class="ow">in</span> <span class="n">c</span>
 </pre></div>
@@ -1199,6 +1200,7 @@ print(&#39;the output is removed, so you can only see the print statement.&#39;)
     <span class="ansi-magenta-fg">Validating your flow...</span>
     <span class="ansi-green-intense-fg ansi-bold">    The graph looks good!</span>
     <span class="ansi-magenta-fg">Running pylint...</span>
+    ...
 ```
 
 &lt;/CodeOutputBlock&gt;
@@ -1217,6 +1219,7 @@ print(&#39;\n&#39;.join([&#39;hello&#39;]*10))
     hello
     hello
     hello
+    ...
 ```
 
 &lt;/CodeOutputBlock&gt;
