@@ -79,7 +79,7 @@ def fmt_sig_param(p:inspect.Parameter):
 # Cell
 def get_sig_section(obj, spoofstr=None):
     "Get JSX section from the signature of a class or function consisting of all of the argument. Optionally replace signature with `spoofstr`"
-    if not spoofstr:
+    if spoofstr is None:
         if not inspect.isclass(obj) and not _is_func(obj):
             raise ValueError(f'You can only generate parameters for classes and functions but got: {type(obj)}')
         try:
@@ -153,10 +153,12 @@ class ShowDoc:
                  objtype=None, # override type of object. ex: 'decorator'
                  module_nm=None, #override module name. ex: 'fastai.vision'
                  decorator=False, #same as setting `objtype` = 'decorator'
-                 spoofstr=None # Spoof the signature
+                 spoofstr=None, # Spoof the signature
+                 show_import=False #show import statement
                 ):
         "Construct the html and JSX representation for a particular object."
         self.spoofstr = spoofstr
+        self.show_import = show_import
         if decorator: objtype = 'decorator'
         self.obj = _get_mf_obj(obj)
         #special handling for metaflow decorators
@@ -191,7 +193,7 @@ class ShowDoc:
         hd_prefix = f'<h{self.hd_lvl}> <code>{self.typ}</code> <span style="color:Brown">{name}</span> <em>{self._html_signature}</em>'
         if self.src_link: hd_prefix += f'<a href="{self.src_link}" style="float:right">[source]</a>'
         hd_prefix += f'</h{self.hd_lvl}>'
-        hd_prefix += f'<strong>{self.modnm}</strong>'
+        if self.show_import: hd_prefix += f'<strong>{self.modnm}</strong>'
         if self._html_docstring: hd_prefix += f'<p>{self._html_docstring}</p>'
         return hd_prefix
 
@@ -214,7 +216,7 @@ class ShowDoc:
     @property
     def jsx(self):
         "Returns the JSX components."
-        nm = f'<DocSection type="{self.typ}" name="{self.objnm}" module="{self.modnm}" heading_level="{self.hd_lvl}"{self._src_link_attr}>'
+        nm = f'<DocSection type="{self.typ}" name="{self.objnm}" module="{self.modnm}" show_import="{self.show_import}" heading_level="{self.hd_lvl}"{self._src_link_attr}>'
         spoof = '...' if self.decorator else self.spoofstr
         sp = get_sig_section(self.obj, spoofstr=spoof)
         return f'{nm}\n{sp}\n{self.npdocs}\n</DocSection>'
