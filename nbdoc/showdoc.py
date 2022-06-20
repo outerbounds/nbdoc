@@ -152,9 +152,11 @@ class ShowDoc:
                  name=None, # override name of object ex: '@mydecorator'
                  objtype=None, # override type of object. ex: 'decorator'
                  module_nm=None, #override module name. ex: 'fastai.vision'
-                 decorator=False #same as setting `objtype` = 'decorator'
+                 decorator=False, #same as setting `objtype` = 'decorator'
+                 spoofstr=None # Spoof the signature
                 ):
         "Construct the html and JSX representation for a particular object."
+        self.spoofstr = spoofstr
         if decorator: objtype = 'decorator'
         self.obj = _get_mf_obj(obj)
         #special handling for metaflow decorators
@@ -203,6 +205,7 @@ class ShowDoc:
     @property
     def _html_signature(self):
         if self.decorator: sig = '(...)'
+        elif self.spoofstr is not None: sig = self.spoofstr
         else:
             try: sig = str(inspect.signature(self.obj))
             except: sig = ''
@@ -212,7 +215,7 @@ class ShowDoc:
     def jsx(self):
         "Returns the JSX components."
         nm = f'<DocSection type="{self.typ}" name="{self.objnm}" module="{self.modnm}" heading_level="{self.hd_lvl}"{self._src_link_attr}>'
-        spoof = '...' if self.decorator else None
+        spoof = '...' if self.decorator else self.spoofstr
         sp = get_sig_section(self.obj, spoofstr=spoof)
         return f'{nm}\n{sp}\n{self.npdocs}\n</DocSection>'
 
