@@ -10,7 +10,7 @@ import json
 from nbdev.export import nbglob, get_config
 from fastcore.utils import Path, urlread
 from fastcore.basics import merge
-from fastcore.script import call_parse, Param, store_false
+from fastcore.script import call_parse, Param, store_false, store_true
 
 _re_name = re.compile(r'<DocSection type="(?!decorator)\S+" name="(\S+)"')
 _re_decname = re.compile(r'<DocSection type="decorator" name="(\S+)"')
@@ -31,7 +31,7 @@ def _get_md_path(path):
 def _get_md_files(path): return mdglob(_get_md_path(path))
 
 # Cell
-def build_index(path=None):
+def build_index(path=None, update_existing=False):
     "Build an index of names generated with `ShowDoc` to document paths."
     path = _get_md_path(path)
     cfg = get_config()
@@ -56,7 +56,9 @@ def build_index(path=None):
             doc_path = str(f.relative_to(path).with_suffix(''))
 
         for n in names+decnames: reverse_idx[n] = doc_url + doc_path + f'#{n}'
-
+    if update_existing:
+        idx = cfg.config_path/'_nbdoc_index.json'
+        if idx.exists(): return merge(idx.read_json(), reverse_idx)
     if reverse_idx:
         (cfg.config_path/'_nbdoc_index.json').write_text(f'{json.dumps(reverse_idx, indent=4)}')
     return reverse_idx
@@ -67,10 +69,11 @@ def get_idx(url): return json.loads(urlread(url))
 
 class NbdevLookup:
     "Mapping from symbol names to URLs with docs"
-    def __init__(self, local=True, md_path=None):
+    def __init__(self, local=True, md_path=None, update_existing=False):
         self.md_path = md_path
         self.local = local
         self.mdfiles = _get_md_files(md_path)
+        self.update_existing = update_existing
 
     def build_syms(self):
         cfg = get_config()
@@ -78,7 +81,7 @@ class NbdevLookup:
         self.syms = merge(*[get_idx(url) for url in urls])
 
         if self.local:
-            build_index(self.md_path)
+            build_index(self.md_path, self.update_existing)
             idx_file = cfg.config_path/'_nbdoc_index.json'
             if idx_file.exists(): self.syms = merge(self.syms, json.loads(idx_file.read_text()))
 
@@ -112,8 +115,9 @@ class NbdevLookup:
 @call_parse
 def nbdoc_linkify(
     local:Param('Whether or not to build an index based on local documents', store_false),
-    md_path:Param('Root path to search recursively containing markdown files to linkify', str)=None
+    keep_existing:Param('Whether or not to keep existing index', store_true),
+    md_path:Param('Root path to search recursively containing markdown files to linkify', str)=None,
 ):
     "Convert names in `backticks` in markdown files that have been documented with nbdoc.showdoc.ShowDoc to appropriate links."
-    nl = NbdevLookup(local=local, md_path=md_path)
+    nl = NbdevLookup(local=local, md_path=md_path, update_existing=keep_existing)
     nl.update_markdown()
