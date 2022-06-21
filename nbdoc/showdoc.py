@@ -44,7 +44,8 @@ def np2jsx(obj):
     "Turn Numpy Docstrings Into JSX components"
     if inspect.isclass(obj): doc = ClassDoc(obj)
     elif _is_func(obj): doc = FunctionDoc(obj)
-    else: raise ValueError(f'You can only generate parameters for classes and functions but got: {type(obj)}')
+    else:
+        return f'<Description summary="' + inspect.getdoc(obj) +'" />'
     desc_list = []
     for a in _ATTRS_STR_LIST:
         nm = a.replace(' ', '_').lower()
@@ -80,8 +81,7 @@ def fmt_sig_param(p:inspect.Parameter):
 def get_sig_section(obj, spoofstr=None):
     "Get JSX section from the signature of a class or function consisting of all of the argument. Optionally replace signature with `spoofstr`"
     if spoofstr is None:
-        if not inspect.isclass(obj) and not _is_func(obj):
-            raise ValueError(f'You can only generate parameters for classes and functions but got: {type(obj)}')
+        if not inspect.isclass(obj) and not _is_func(obj): return ""
         try:
             sig = inspect.signature(obj)
         except:
@@ -97,6 +97,7 @@ def get_type(obj):
     "Return type of object as a either 'method', 'function', 'class' or `None`."
     typ = None
     if inspect.ismethod(obj): return 'method'
+    if hasattr(obj, 'fget'): return 'property'
     if _is_func(obj):
         try:
             sig = inspect.signature(obj)
@@ -168,16 +169,21 @@ class ShowDoc:
             name = self.obj.__newname__
         self.decorator = decorator
         self.typ = get_type(self.obj) if not objtype else objtype
-        if not self.typ: raise ValueError(f'Can only parse a class or a function, but got a {type(self.obj)}')
+        # if not self.typ: raise ValueError(f'Can only parse a class or a function, but got a {type(self.obj)}')
         self.npdocs = np2jsx(self.obj)
 
-        default_nm = self.obj.__qualname__ if self.typ == 'method' else self.obj.__name__
+        if self.typ == 'method': default_nm = self.obj.__qualname__
+        elif self.typ == 'property':
+            default_nm = self.obj.fget.__name__
+            module_nm = inspect.getmodule(self.obj.fget).__name__
+        else: default_nm = self.obj.__name__
+
         self.objnm = default_nm if not name else name
 
         self.modnm = inspect.getmodule(self.obj).__name__ if not module_nm else module_nm
 
         if hd_lvl: self.hd_lvl = hd_lvl
-        elif self.typ == 'method': self.hd_lvl = 4
+        elif self.typ in ['method', 'property']: self.hd_lvl = 4
         else: self.hd_lvl = 3
         self.link_suffix = get_source_link(self.obj)
 
