@@ -258,6 +258,11 @@ class ExampleClass(object):
 
         If the setter method contains notable behavior, it should be
         mentioned here.
+        
+        Returns
+        -------
+        int
+            Index of the task in a foreach step
         """
         return ["readwrite_property"]
 

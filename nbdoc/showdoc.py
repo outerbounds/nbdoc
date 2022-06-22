@@ -10,6 +10,7 @@ from xml.etree import ElementTree as et
 import inspect, warnings
 from nbdev.showdoc import get_config
 from functools import partial
+import re
 
 # Cell
 _ATTRS_PARAMS=['Parameters', 'Attributes', 'Returns', 'Yields', 'Raises'] # These have parameters
@@ -40,16 +41,38 @@ def param2JSX(p:Parameter):
     return prefix.strip() + suffix
 
 # Cell
+_re_returns = re.compile('\nReturns\n-------\n(.*)', re.DOTALL)
+
+def _esc(s): return s.encode('unicode_escape').decode('utf-8').replace('"', '&#34;')
+
+def _returns(docstring):
+    "Parse just the returns section for properties."
+    returns = _re_returns.findall(docstring)
+    if returns:
+        args = returns[0].split('\n    ')
+        if len(args) == 2:
+            typ,desc=args
+            return f'<ParamSection name="Returns">\n<Parameter type="{typ}" desc="{_esc(desc)}" />\n</ParamSection>'
+        else: return ''
+    else: return ''
+
+def _desc(summary): return f'<Description summary="{_esc(summary)}" />'
+
 def np2jsx(obj):
     "Turn Numpy Docstrings Into JSX components"
     if inspect.isclass(obj): doc = ClassDoc(obj)
     elif _is_func(obj): doc = FunctionDoc(obj)
     else:
-        return (f'<Description summary="' + inspect.getdoc(obj) +'" />').encode('unicode_escape').decode('utf-8')
+        _summary = inspect.getdoc(obj)
+        ret = _returns(_summary) # get the return section if present
+        if ret: ret = '\n'+ret
+        summary = _re_returns.sub('', _summary) # get rid of the Returns
+        return f'{_desc(summary)}{ret}'
+
     desc_list = []
     for a in _ATTRS_STR_LIST:
         nm = a.replace(' ', '_').lower()
-        desc = '\n'.join(doc[a]).encode('unicode_escape').decode('utf-8')
+        desc = '\n'.join(doc[a]).encode('unicode_escape').decode('utf-8').replace('"', '&#34;')
         if doc[a]: desc_list.append(f' {nm}="{desc}"')
     desc_props = ''.join(desc_list)
     desc_component = f'<Description{desc_props} />' if desc_props else ''

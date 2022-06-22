@@ -13,11 +13,12 @@ docs_serve: docs
 test:
 	nbdev_test_nbs
 
-
 nbdev-all:
 	nbdev_clean_nbs
 	nbdev_build_lib
 	nbdev_test_nbs
+	pip install -e .
+    
 
 release:
 	nbdev_clean_nbs
