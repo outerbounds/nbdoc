@@ -197,7 +197,7 @@ class ShowDoc:
 
         if self.typ == 'method': default_nm = self.obj.__qualname__
         elif self.typ == 'property':
-            default_nm = self.obj.fget.__name__
+            default_nm = self.obj.fget.__qualname__
             module_nm = inspect.getmodule(self.obj.fget).__name__
         else: default_nm = self.obj.__name__
 
