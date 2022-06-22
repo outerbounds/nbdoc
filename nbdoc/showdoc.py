@@ -45,7 +45,7 @@ def np2jsx(obj):
     if inspect.isclass(obj): doc = ClassDoc(obj)
     elif _is_func(obj): doc = FunctionDoc(obj)
     else:
-        return f'<Description summary="' + inspect.getdoc(obj) +'" />'
+        return (f'<Description summary="' + inspect.getdoc(obj) +'" />').encode('unicode_escape').decode('utf-8')
     desc_list = []
     for a in _ATTRS_STR_LIST:
         nm = a.replace(' ', '_').lower()
@@ -225,7 +225,7 @@ class ShowDoc:
         nm = f'<DocSection type="{self.typ}" name="{self.objnm}" module="{self.modnm}" show_import="{self.show_import}" heading_level="{self.hd_lvl}"{self._src_link_attr}>'
         spoof = '...' if self.decorator else self.spoofstr
         sp = get_sig_section(self.obj, spoofstr=spoof)
-        return f'{nm}\n{sp}\n{self.npdocs}\n</DocSection>'
+        return f'{nm}\n{sp}\n' + self.npdocs + '\n</DocSection>'
 
     @property
     def src_link(self):
