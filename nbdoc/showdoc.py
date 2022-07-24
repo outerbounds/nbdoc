@@ -104,7 +104,7 @@ def fmt_sig_param(p:inspect.Parameter):
 def get_sig_section(obj, spoofstr=None):
     "Get JSX section from the signature of a class or function consisting of all of the argument. Optionally replace signature with `spoofstr`"
     if spoofstr is None:
-        if not inspect.isclass(obj) and not _is_func(obj): return ""
+        if not inspect.isclass(obj) and not _is_func(obj) and not inspect.ismethod(obj): return ""
         try:
             sig = inspect.signature(obj)
         except:
