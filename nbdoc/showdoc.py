@@ -61,7 +61,7 @@ def _desc(summary): return f'<Description summary="{_esc(summary)}" />'
 def np2jsx(obj):
     "Turn Numpy Docstrings Into JSX components"
     if inspect.isclass(obj): doc = ClassDoc(obj)
-    elif _is_func(obj): doc = FunctionDoc(obj)
+    elif _is_func(obj) or inspect.ismethod(obj): doc = FunctionDoc(obj)
     else:
         _summary = inspect.getdoc(obj)
         ret = _returns(_summary) # get the return section if present
