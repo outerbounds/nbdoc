@@ -54,7 +54,7 @@ nb_path: "nbs/showdoc.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="is_valid_xml" class="doc_header"><code>is_valid_xml</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_valid_xml</code>(<strong><code>xml</code></strong>:<code>str</code>)</p>
+<h4 id="is_valid_xml" class="doc_header"><code>is_valid_xml</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L22" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_valid_xml</code>(<strong><code>xml</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Determine if xml is valid or not.</p>
 
@@ -154,7 +154,7 @@ WARNING: xml not does not parse:mismatched tag: line 1, column 7
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="param2JSX" class="doc_header"><code>param2JSX</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L29" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>param2JSX</code>(<strong><code>p</code></strong>:<code>Parameter</code>)</p>
+<h4 id="param2JSX" class="doc_header"><code>param2JSX</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L31" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>param2JSX</code>(<strong><code>p</code></strong>:<code>Parameter</code>)</p>
 </blockquote>
 <p>Format a numpydoc.docscrape.Parameters as JSX components</p>
 
@@ -207,7 +207,7 @@ WARNING: xml not does not parse:mismatched tag: line 1, column 7
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="np2jsx" class="doc_header"><code>np2jsx</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L43" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>np2jsx</code>(<strong><code>obj</code></strong>)</p>
+<h4 id="np2jsx" class="doc_header"><code>np2jsx</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L62" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>np2jsx</code>(<strong><code>obj</code></strong>, <strong><code>skip_sections</code></strong>=<em><code>''</code></em>)</p>
 </blockquote>
 <p>Turn Numpy Docstrings Into JSX components</p>
 
@@ -428,7 +428,7 @@ bool
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="fmt_sig_param" class="doc_header"><code>fmt_sig_param</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L67" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fmt_sig_param</code>(<strong><code>p</code></strong>:<code>Parameter</code>)</p>
+<h4 id="fmt_sig_param" class="doc_header"><code>fmt_sig_param</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L93" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fmt_sig_param</code>(<strong><code>p</code></strong>:<code>Parameter</code>)</p>
 </blockquote>
 <p>Format inspect.Parameters as JSX components.</p>
 
@@ -530,7 +530,7 @@ bool
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_sig_section" class="doc_header"><code>get_sig_section</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L80" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_sig_section</code>(<strong><code>obj</code></strong>, <strong><code>spoofstr</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="get_sig_section" class="doc_header"><code>get_sig_section</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L106" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_sig_section</code>(<strong><code>obj</code></strong>, <strong><code>spoofstr</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Get JSX section from the signature of a class or function consisting of all of the argument. Optionally replace signature with <code>spoofstr</code></p>
 
@@ -650,7 +650,7 @@ bool
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_type" class="doc_header"><code>get_type</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L96" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_type</code>(<strong><code>obj</code></strong>)</p>
+<h4 id="get_type" class="doc_header"><code>get_type</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L121" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_type</code>(<strong><code>obj</code></strong>)</p>
 </blockquote>
 <p>Return type of object as a either 'method', 'function', 'class' or <code>None</code>.</p>
 
@@ -701,7 +701,7 @@ bool
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_base_urls" class="doc_header"><code>get_base_urls</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L111" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_base_urls</code>(<strong><code>warn</code></strong>=<em><code>False</code></em>, <strong><code>param</code></strong>=<em><code>'module_baseurls'</code></em>)</p>
+<h4 id="get_base_urls" class="doc_header"><code>get_base_urls</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L137" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_base_urls</code>(<strong><code>warn</code></strong>=<em><code>False</code></em>, <strong><code>param</code></strong>=<em><code>'module_baseurls'</code></em>)</p>
 </blockquote>
 <p>Get baseurls from config file</p>
 
@@ -782,7 +782,7 @@ bool
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ShowDoc" class="doc_header"><code>class</code> <code>ShowDoc</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L149" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ShowDoc</code>(<strong><code>obj</code></strong>, <strong><code>hd_lvl</code></strong>=<em><code>None</code></em>, <strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>objtype</code></strong>=<em><code>None</code></em>, <strong><code>module_nm</code></strong>=<em><code>None</code></em>, <strong><code>decorator</code></strong>=<em><code>False</code></em>)</p>
+<h2 id="ShowDoc" class="doc_header"><code>class</code> <code>ShowDoc</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/showdoc.py#L175" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ShowDoc</code>(<strong><code>obj</code></strong>, <strong><code>hd_lvl</code></strong>=<em><code>None</code></em>, <strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>objtype</code></strong>=<em><code>None</code></em>, <strong><code>module_nm</code></strong>=<em><code>None</code></em>, <strong><code>decorator</code></strong>=<em><code>False</code></em>, <strong><code>spoofstr</code></strong>=<em><code>None</code></em>, <strong><code>show_import</code></strong>=<em><code>False</code></em>, <strong><code>skip_sections</code></strong>=<em><code>''</code></em>)</p>
 </blockquote>
 <table>
 <thead><tr>
@@ -802,25 +802,25 @@ bool
 <tr>
 <td><strong><code>hd_lvl</code></strong></td>
 <td><code>NoneType</code></td>
-<td>``</td>
+<td><code>None</code></td>
 <td>override heading level</td>
 </tr>
 <tr>
 <td><strong><code>name</code></strong></td>
 <td><code>NoneType</code></td>
-<td>``</td>
+<td><code>None</code></td>
 <td>override name of object ex: '@mydecorator'</td>
 </tr>
 <tr>
 <td><strong><code>objtype</code></strong></td>
 <td><code>NoneType</code></td>
-<td>``</td>
+<td><code>None</code></td>
 <td>override type of object. ex: 'decorator'</td>
 </tr>
 <tr>
 <td><strong><code>module_nm</code></strong></td>
 <td><code>NoneType</code></td>
-<td>``</td>
+<td><code>None</code></td>
 <td>override module name. ex: 'fastai.vision'</td>
 </tr>
 <tr>
@@ -828,6 +828,24 @@ bool
 <td><code>bool</code></td>
 <td><code>False</code></td>
 <td>same as setting <code>objtype</code> = 'decorator'</td>
+</tr>
+<tr>
+<td><strong><code>spoofstr</code></strong></td>
+<td><code>NoneType</code></td>
+<td><code>None</code></td>
+<td>Spoof the signature</td>
+</tr>
+<tr>
+<td><strong><code>show_import</code></strong></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>show import statement</td>
+</tr>
+<tr>
+<td><strong><code>skip_sections</code></strong></td>
+<td><code>str</code></td>
+<td><code>""</code></td>
+<td>list of sections to skip, one or more of 'Parameters', 'Attributes', 'Returns', 'Yields', 'Raises'</td>
 </tr>
 </tbody>
 </table>
@@ -878,9 +896,9 @@ bool
 
 
 <div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
-<h3> <code>class</code> <span style="color:Brown">ExampleClass</span> <em>(param1, param2, param3)</em></h3><strong>test_lib.example</strong><p><blockquote>The&nbsp;summary&nbsp;line&nbsp;for&nbsp;a&nbsp;class&nbsp;docstring&nbsp;should&nbsp;fit&nbsp;on&nbsp;one&nbsp;line.<br><br>If&nbsp;the&nbsp;class&nbsp;has&nbsp;public&nbsp;attributes,&nbsp;they&nbsp;may&nbsp;be&nbsp;documented&nbsp;here<br>in&nbsp;an&nbsp;``Attributes``&nbsp;section&nbsp;and&nbsp;follow&nbsp;the&nbsp;same&nbsp;formatting&nbsp;as&nbsp;a<br>function's&nbsp;``Args``&nbsp;section.&nbsp;Alternatively,&nbsp;attributes&nbsp;may&nbsp;be&nbsp;documented<br>inline&nbsp;with&nbsp;the&nbsp;attribute's&nbsp;declaration&nbsp;(see&nbsp;__init__&nbsp;method&nbsp;below).<br><br>Properties&nbsp;created&nbsp;with&nbsp;the&nbsp;``@property``&nbsp;decorator&nbsp;should&nbsp;be&nbsp;documented<br>in&nbsp;the&nbsp;property's&nbsp;getter&nbsp;method.<br><br>Attributes<br>----------<br>attr1&nbsp;:&nbsp;str<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr1`.<br>attr2&nbsp;:&nbsp;:obj:`int`,&nbsp;optional<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr2`.</blockquote></p>
+<h3> <code>class</code> <span style="color:Brown">ExampleClass</span> <em>(param1, param2, param3)</em></h3><p><blockquote>The&nbsp;summary&nbsp;line&nbsp;for&nbsp;a&nbsp;class&nbsp;docstring&nbsp;should&nbsp;fit&nbsp;on&nbsp;one&nbsp;line.<br><br>If&nbsp;the&nbsp;class&nbsp;has&nbsp;public&nbsp;attributes,&nbsp;they&nbsp;may&nbsp;be&nbsp;documented&nbsp;here<br>in&nbsp;an&nbsp;``Attributes``&nbsp;section&nbsp;and&nbsp;follow&nbsp;the&nbsp;same&nbsp;formatting&nbsp;as&nbsp;a<br>function's&nbsp;``Args``&nbsp;section.&nbsp;Alternatively,&nbsp;attributes&nbsp;may&nbsp;be&nbsp;documented<br>inline&nbsp;with&nbsp;the&nbsp;attribute's&nbsp;declaration&nbsp;(see&nbsp;__init__&nbsp;method&nbsp;below).<br><br>Properties&nbsp;created&nbsp;with&nbsp;the&nbsp;``@property``&nbsp;decorator&nbsp;should&nbsp;be&nbsp;documented<br>in&nbsp;the&nbsp;property's&nbsp;getter&nbsp;method.<br><br>Attributes<br>----------<br>attr1&nbsp;:&nbsp;str<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr1`.<br>attr2&nbsp;:&nbsp;:obj:`int`,&nbsp;optional<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr2`.</blockquote></p>
 </HTMLRemove>
-<DocSection type="class" name="ExampleClass" module="test_lib.example" heading_level="3">
+<DocSection type="class" name="ExampleClass" module="test_lib.example" show_import="False" heading_level="3">
 <SigArgSection>
 <SigArg name="param1" /><SigArg name="param2" /><SigArg name="param3" />
 </SigArgSection>
@@ -927,9 +945,9 @@ bool
 
 
 <div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
-<h3> <code>decorator</code> <span style="color:Brown">@example</span> <em>(...)</em></h3><strong>test_lib.example</strong><p><blockquote>The&nbsp;summary&nbsp;line&nbsp;for&nbsp;a&nbsp;class&nbsp;docstring&nbsp;should&nbsp;fit&nbsp;on&nbsp;one&nbsp;line.<br><br>If&nbsp;the&nbsp;class&nbsp;has&nbsp;public&nbsp;attributes,&nbsp;they&nbsp;may&nbsp;be&nbsp;documented&nbsp;here<br>in&nbsp;an&nbsp;``Attributes``&nbsp;section&nbsp;and&nbsp;follow&nbsp;the&nbsp;same&nbsp;formatting&nbsp;as&nbsp;a<br>function's&nbsp;``Args``&nbsp;section.&nbsp;Alternatively,&nbsp;attributes&nbsp;may&nbsp;be&nbsp;documented<br>inline&nbsp;with&nbsp;the&nbsp;attribute's&nbsp;declaration&nbsp;(see&nbsp;__init__&nbsp;method&nbsp;below).<br><br>Properties&nbsp;created&nbsp;with&nbsp;the&nbsp;``@property``&nbsp;decorator&nbsp;should&nbsp;be&nbsp;documented<br>in&nbsp;the&nbsp;property's&nbsp;getter&nbsp;method.<br><br>Attributes<br>----------<br>attr1&nbsp;:&nbsp;str<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr1`.<br>attr2&nbsp;:&nbsp;:obj:`int`,&nbsp;optional<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr2`.</blockquote></p>
+<h3> <code>decorator</code> <span style="color:Brown">@example</span> <em>(...)</em></h3><p><blockquote>The&nbsp;summary&nbsp;line&nbsp;for&nbsp;a&nbsp;class&nbsp;docstring&nbsp;should&nbsp;fit&nbsp;on&nbsp;one&nbsp;line.<br><br>If&nbsp;the&nbsp;class&nbsp;has&nbsp;public&nbsp;attributes,&nbsp;they&nbsp;may&nbsp;be&nbsp;documented&nbsp;here<br>in&nbsp;an&nbsp;``Attributes``&nbsp;section&nbsp;and&nbsp;follow&nbsp;the&nbsp;same&nbsp;formatting&nbsp;as&nbsp;a<br>function's&nbsp;``Args``&nbsp;section.&nbsp;Alternatively,&nbsp;attributes&nbsp;may&nbsp;be&nbsp;documented<br>inline&nbsp;with&nbsp;the&nbsp;attribute's&nbsp;declaration&nbsp;(see&nbsp;__init__&nbsp;method&nbsp;below).<br><br>Properties&nbsp;created&nbsp;with&nbsp;the&nbsp;``@property``&nbsp;decorator&nbsp;should&nbsp;be&nbsp;documented<br>in&nbsp;the&nbsp;property's&nbsp;getter&nbsp;method.<br><br>Attributes<br>----------<br>attr1&nbsp;:&nbsp;str<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr1`.<br>attr2&nbsp;:&nbsp;:obj:`int`,&nbsp;optional<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr2`.</blockquote></p>
 </HTMLRemove>
-<DocSection type="decorator" name="@example" module="test_lib.example" heading_level="3">
+<DocSection type="decorator" name="example" module="test_lib.example" show_import="False" heading_level="3">
 <SigArgSection>
 <SigArg name="..." />
 </SigArgSection>
@@ -976,9 +994,9 @@ bool
 
 
 <div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
-<h3> <code>decorator</code> <span style="color:Brown">@example</span> <em>(...)</em></h3><strong>mymodule.foo</strong><p><blockquote>The&nbsp;summary&nbsp;line&nbsp;for&nbsp;a&nbsp;class&nbsp;docstring&nbsp;should&nbsp;fit&nbsp;on&nbsp;one&nbsp;line.<br><br>If&nbsp;the&nbsp;class&nbsp;has&nbsp;public&nbsp;attributes,&nbsp;they&nbsp;may&nbsp;be&nbsp;documented&nbsp;here<br>in&nbsp;an&nbsp;``Attributes``&nbsp;section&nbsp;and&nbsp;follow&nbsp;the&nbsp;same&nbsp;formatting&nbsp;as&nbsp;a<br>function's&nbsp;``Args``&nbsp;section.&nbsp;Alternatively,&nbsp;attributes&nbsp;may&nbsp;be&nbsp;documented<br>inline&nbsp;with&nbsp;the&nbsp;attribute's&nbsp;declaration&nbsp;(see&nbsp;__init__&nbsp;method&nbsp;below).<br><br>Properties&nbsp;created&nbsp;with&nbsp;the&nbsp;``@property``&nbsp;decorator&nbsp;should&nbsp;be&nbsp;documented<br>in&nbsp;the&nbsp;property's&nbsp;getter&nbsp;method.<br><br>Attributes<br>----------<br>attr1&nbsp;:&nbsp;str<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr1`.<br>attr2&nbsp;:&nbsp;:obj:`int`,&nbsp;optional<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr2`.</blockquote></p>
+<h3> <code>decorator</code> <span style="color:Brown">@example</span> <em>(...)</em></h3><p><blockquote>The&nbsp;summary&nbsp;line&nbsp;for&nbsp;a&nbsp;class&nbsp;docstring&nbsp;should&nbsp;fit&nbsp;on&nbsp;one&nbsp;line.<br><br>If&nbsp;the&nbsp;class&nbsp;has&nbsp;public&nbsp;attributes,&nbsp;they&nbsp;may&nbsp;be&nbsp;documented&nbsp;here<br>in&nbsp;an&nbsp;``Attributes``&nbsp;section&nbsp;and&nbsp;follow&nbsp;the&nbsp;same&nbsp;formatting&nbsp;as&nbsp;a<br>function's&nbsp;``Args``&nbsp;section.&nbsp;Alternatively,&nbsp;attributes&nbsp;may&nbsp;be&nbsp;documented<br>inline&nbsp;with&nbsp;the&nbsp;attribute's&nbsp;declaration&nbsp;(see&nbsp;__init__&nbsp;method&nbsp;below).<br><br>Properties&nbsp;created&nbsp;with&nbsp;the&nbsp;``@property``&nbsp;decorator&nbsp;should&nbsp;be&nbsp;documented<br>in&nbsp;the&nbsp;property's&nbsp;getter&nbsp;method.<br><br>Attributes<br>----------<br>attr1&nbsp;:&nbsp;str<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr1`.<br>attr2&nbsp;:&nbsp;:obj:`int`,&nbsp;optional<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr2`.</blockquote></p>
 </HTMLRemove>
-<DocSection type="decorator" name="@example" module="mymodule.foo" heading_level="3">
+<DocSection type="decorator" name="example" module="mymodule.foo" show_import="False" heading_level="3">
 <SigArgSection>
 <SigArg name="..." />
 </SigArgSection>
@@ -987,6 +1005,45 @@ bool
 	<Parameter name="attr1" type="str" desc="Description of `attr1`." />
 	<Parameter name="attr2" type=":obj:`int`, optional" desc="Description of `attr2`." />
 </ParamSection>
+</DocSection></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowDoc</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">ExampleClass</span><span class="p">,</span> <span class="n">skip_sections</span><span class="o">=</span><span class="s1">&#39;Attributes&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
+<h3> <code>class</code> <span style="color:Brown">ExampleClass</span> <em>(param1, param2, param3)</em></h3><p><blockquote>The&nbsp;summary&nbsp;line&nbsp;for&nbsp;a&nbsp;class&nbsp;docstring&nbsp;should&nbsp;fit&nbsp;on&nbsp;one&nbsp;line.<br><br>If&nbsp;the&nbsp;class&nbsp;has&nbsp;public&nbsp;attributes,&nbsp;they&nbsp;may&nbsp;be&nbsp;documented&nbsp;here<br>in&nbsp;an&nbsp;``Attributes``&nbsp;section&nbsp;and&nbsp;follow&nbsp;the&nbsp;same&nbsp;formatting&nbsp;as&nbsp;a<br>function's&nbsp;``Args``&nbsp;section.&nbsp;Alternatively,&nbsp;attributes&nbsp;may&nbsp;be&nbsp;documented<br>inline&nbsp;with&nbsp;the&nbsp;attribute's&nbsp;declaration&nbsp;(see&nbsp;__init__&nbsp;method&nbsp;below).<br><br>Properties&nbsp;created&nbsp;with&nbsp;the&nbsp;``@property``&nbsp;decorator&nbsp;should&nbsp;be&nbsp;documented<br>in&nbsp;the&nbsp;property's&nbsp;getter&nbsp;method.<br><br>Attributes<br>----------<br>attr1&nbsp;:&nbsp;str<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr1`.<br>attr2&nbsp;:&nbsp;:obj:`int`,&nbsp;optional<br>&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;of&nbsp;`attr2`.</blockquote></p>
+</HTMLRemove>
+<DocSection type="class" name="ExampleClass" module="test_lib.example" show_import="False" heading_level="3">
+<SigArgSection>
+<SigArg name="param1" /><SigArg name="param2" /><SigArg name="param3" />
+</SigArgSection>
+<Description summary="The summary line for a class docstring should fit on one line." extended_summary="If the class has public attributes, they may be documented here\nin an ``Attributes`` section and follow the same formatting as a\nfunction's ``Args`` section. Alternatively, attributes may be documented\ninline with the attribute's declaration (see __init__ method below).\n\nProperties created with the ``@property`` decorator should be documented\nin the property's getter method." />
+
 </DocSection></div>
 
 </div>
@@ -1024,7 +1081,7 @@ bool
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/hamel/opt/anaconda3/lib/python3.9/site-packages/numpydoc/docscrape.py:434: UserWarning: Unknown section Note in the docstring of example_method in /Users/hamel/github/nbdoc/nbs/test_lib/example.py.
+<pre>/Users/hamel/opt/anaconda3/envs/nbdoc/lib/python3.10/site-packages/numpydoc/docscrape.py:434: UserWarning: Unknown section Note in the docstring of example_method in /Users/hamel/github/nbdoc/nbs/test_lib/example.py.
   warn(msg)
 </pre>
 </div>
@@ -1034,11 +1091,11 @@ bool
 
 
 <div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
-<h4> <code>method</code> <span style="color:Brown">ExampleClass.example_method</span> <em>(self, param1, param2)</em></h4><strong>test_lib.example</strong><p><blockquote>Class&nbsp;methods&nbsp;are&nbsp;similar&nbsp;to&nbsp;regular&nbsp;functions.<br><br>Note<br>----<br>Do&nbsp;not&nbsp;include&nbsp;the&nbsp;`self`&nbsp;parameter&nbsp;in&nbsp;the&nbsp;``Parameters``&nbsp;section.<br><br>Parameters<br>----------<br>param1<br>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;parameter.<br>param2<br>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;second&nbsp;parameter.<br><br>Returns<br>-------<br>bool<br>&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;successful,&nbsp;False&nbsp;otherwise.</blockquote></p>
+<h4> <code>method</code> <span style="color:Brown">ExampleClass.example_method</span> <em>(param1, param2)</em></h4><p><blockquote>Class&nbsp;methods&nbsp;are&nbsp;similar&nbsp;to&nbsp;regular&nbsp;functions.<br><br>Note<br>----<br>Do&nbsp;not&nbsp;include&nbsp;the&nbsp;`self`&nbsp;parameter&nbsp;in&nbsp;the&nbsp;``Parameters``&nbsp;section.<br><br>Parameters<br>----------<br>param1<br>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;parameter.<br>param2<br>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;second&nbsp;parameter.<br><br>Returns<br>-------<br>bool<br>&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;successful,&nbsp;False&nbsp;otherwise.</blockquote></p>
 </HTMLRemove>
-<DocSection type="method" name="ExampleClass.example_method" module="test_lib.example" heading_level="4">
+<DocSection type="method" name="ExampleClass.example_method" module="test_lib.example" show_import="False" heading_level="4">
 <SigArgSection>
-<SigArg name="self" /><SigArg name="param1" /><SigArg name="param2" />
+<SigArg name="param1" /><SigArg name="param2" />
 </SigArgSection>
 <Description summary="Class methods are similar to regular functions." />
 <ParamSection name="Parameters">
@@ -1048,6 +1105,49 @@ bool
 <ParamSection name="Returns">
 	<Parameter type="bool" desc="True if successful, False otherwise." />
 </ParamSection>
+</DocSection></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can also render properties as well:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowDoc</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">ExampleClass</span><span class="o">.</span><span class="n">readonly_property</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
+<h4> <code>property</code> <span style="color:Brown">ExampleClass.readonly_property</span> <em></em></h4><p><blockquote>str:&nbsp;Properties&nbsp;should&nbsp;be&nbsp;documented&nbsp;in&nbsp;their&nbsp;getter&nbsp;method.</blockquote></p>
+</HTMLRemove>
+<DocSection type="property" name="ExampleClass.readonly_property" module="test_lib.example" show_import="False" heading_level="4">
+
+<Description summary="str: Properties should be documented in their getter method." />
 </DocSection></div>
 
 </div>
@@ -1086,9 +1186,9 @@ bool
 
 
 <div class="output_html rendered_html output_subarea output_execute_result"><HTMLRemove>
-<h3> <code>function</code> <span style="color:Brown">test_eq</span> <em>(a, b)</em><a href="https://github.com/fastcore/tree/masterhttps://github.com/fastai/fastcore/tree/master/fastcore/test.py#L34" style="float:right">[source]</a></h3><strong>fastcore.test</strong><p><blockquote>`test`&nbsp;that&nbsp;`a==b`</blockquote></p>
+<h3> <code>function</code> <span style="color:Brown">test_eq</span> <em>(a, b)</em><a href="https://github.com/fastcore/tree/masterhttps://github.com/fastai/fastcore/tree/master/fastcore/test.py#L34" style="float:right">[source]</a></h3><p><blockquote>`test`&nbsp;that&nbsp;`a==b`</blockquote></p>
 </HTMLRemove>
-<DocSection type="function" name="test_eq" module="fastcore.test" heading_level="3" link="https://github.com/fastcore/tree/masterhttps://github.com/fastai/fastcore/tree/master/fastcore/test.py#L34">
+<DocSection type="function" name="test_eq" module="fastcore.test" show_import="False" heading_level="3" link="https://github.com/fastcore/tree/masterhttps://github.com/fastai/fastcore/tree/master/fastcore/test.py#L34">
 <SigArgSection>
 <SigArg name="a" /><SigArg name="b" />
 </SigArgSection>
@@ -1133,7 +1233,7 @@ bool
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;DocSection type=&#34;class&#34; name=&#34;ExampleClass&#34; module=&#34;test_lib.example&#34; heading_level=&#34;3&#34;&gt;
+<pre>&lt;DocSection type=&#34;class&#34; name=&#34;ExampleClass&#34; module=&#34;test_lib.example&#34; show_import=&#34;False&#34; heading_level=&#34;3&#34;&gt;
 &lt;SigArgSection&gt;
 &lt;SigArg name=&#34;param1&#34; /&gt;&lt;SigArg name=&#34;param2&#34; /&gt;&lt;SigArg name=&#34;param3&#34; /&gt;
 &lt;/SigArgSection&gt;
@@ -1176,7 +1276,7 @@ bool
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;DocSection type=&#34;class&#34; name=&#34;Foo&#34; module=&#34;test_lib.example&#34; heading_level=&#34;3&#34;&gt;
+<pre>&lt;DocSection type=&#34;class&#34; name=&#34;Foo&#34; module=&#34;test_lib.example&#34; show_import=&#34;False&#34; heading_level=&#34;3&#34;&gt;
 &lt;SigArgSection&gt;
 &lt;SigArg name=&#34;a&#34; type=&#34;int&#34; /&gt;&lt;SigArg name=&#34;b&#34; type=&#34;str&#34; default=&#34;foo&#34; /&gt;&lt;SigArg name=&#34;c&#34; type=&#34;float&#34; default=&#34;0.1&#34; /&gt;&lt;SigArg name=&#34;*args&#34; /&gt;&lt;SigArg name=&#34;**tags&#34; /&gt;
 &lt;/SigArgSection&gt;
@@ -1194,5 +1294,5 @@ bool
     {% endraw %}
 
 </div>
- 
+
 

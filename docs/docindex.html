@@ -54,7 +54,7 @@ nb_path: "nbs/docindex.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_index" class="doc_header"><code>build_index</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L34" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_index</code>(<strong><code>path</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="build_index" class="doc_header"><code>build_index</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L34" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_index</code>(<strong><code>path</code></strong>=<em><code>None</code></em>, <strong><code>update_existing</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Build an index of names generated with <a href="/nbdoc/showdoc.html#ShowDoc"><code>ShowDoc</code></a> to document paths.</p>
 
@@ -104,7 +104,7 @@ nb_path: "nbs/docindex.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;DocSection type=&#34;function&#34; name=&#34;function_with_types_in_docstring&#34; module=&#34;test_lib.example&#34; heading_level=&#34;3&#34;&gt;
+<pre>&lt;DocSection type=&#34;function&#34; name=&#34;function_with_types_in_docstring&#34; module=&#34;test_lib.example&#34; show_import=&#34;False&#34; heading_level=&#34;3&#34;&gt;
 &lt;SigArgSection&gt;
 &lt;SigArg name=&#34;param1&#34; /&gt;&lt;SigArg name=&#34;param2&#34; /&gt;
 &lt;/SigArgSection&gt;
@@ -153,7 +153,7 @@ key2: value2
 slug: custom/pathfor/site
 key: value
 ---
-&lt;DocSection type=&#34;function&#34; name=&#34;function_with_pep484_type_annotations&#34; module=&#34;test_lib.example&#34; heading_level=&#34;3&#34;&gt;
+&lt;DocSection type=&#34;function&#34; name=&#34;function_with_pep484_type_annotations&#34; module=&#34;test_lib.example&#34; show_import=&#34;False&#34; heading_level=&#34;3&#34;&gt;
 &lt;SigArgSection&gt;
 &lt;SigArg name=&#34;param1&#34; type=&#34;int&#34; /&gt;&lt;SigArg name=&#34;param2&#34; type=&#34;str&#34; /&gt;
 &lt;/SigArgSection&gt;
@@ -244,7 +244,7 @@ key: value
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_idx" class="doc_header"><code>get_idx</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L66" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_idx</code>(<strong><code>url</code></strong>)</p>
+<h4 id="get_idx" class="doc_header"><code>get_idx</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L68" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_idx</code>(<strong><code>url</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -268,7 +268,7 @@ key: value
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="NbdevLookup" class="doc_header"><code>class</code> <code>NbdevLookup</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L68" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>NbdevLookup</code>(<strong><code>local</code></strong>=<em><code>True</code></em>, <strong><code>md_path</code></strong>=<em><code>None</code></em>)</p>
+<h2 id="NbdevLookup" class="doc_header"><code>class</code> <code>NbdevLookup</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L70" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>NbdevLookup</code>(<strong><code>local</code></strong>=<em><code>True</code></em>, <strong><code>md_path</code></strong>=<em><code>None</code></em>, <strong><code>update_existing</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Mapping from symbol names to URLs with docs</p>
 
@@ -375,9 +375,11 @@ this is another test: `function_with_types_in_docstring`
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Updating: test_files/_md_files/front_matter2.md
 Updating: test_files/_md_files/backticks.md
+Updating: test_files/_md_files/false_fm2.md
 Updating: test_files/_md_files/front_matter_test_docs.md
 Updating: test_files/_md_files/front_matter3.md
 Updating: test_files/_md_files/decorators.md
+Updating: test_files/_md_files/false_fm.md
 Updating: test_files/_md_files/test_docs.md
 </pre>
 </div>
@@ -441,7 +443,7 @@ this is another test: [function_with_types_in_docstring](https://outerbounds.git
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="nbdoc_linkify" class="doc_header"><code>nbdoc_linkify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L112" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>nbdoc_linkify</code>(<strong><code>local</code></strong>:"Whether or not to build an index based on local documents", <strong><code>md_path</code></strong>:"Root path to search recursively containing markdown files to linkify"=<em><code>None</code></em>)</p>
+<h4 id="nbdoc_linkify" class="doc_header"><code>nbdoc_linkify</code><a href="https://github.com/outerbounds/nbdoc/tree/master/nbdoc/docindex.py#L115" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>nbdoc_linkify</code>(<strong><code>local</code></strong>:"Whether or not to build an index based on local documents", <strong><code>keep_existing</code></strong>:"Whether or not to keep existing index", <strong><code>md_path</code></strong>:"Root path to search recursively containing markdown files to linkify"=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Convert names in <code>backticks</code> in markdown files that have been documented with nbdoc.showdoc.ShowDoc to appropriate links.</p>
 
