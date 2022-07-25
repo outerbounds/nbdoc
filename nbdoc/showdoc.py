@@ -6,6 +6,7 @@ __all__ = ['is_valid_xml', 'param2JSX', 'np2jsx', 'fmt_sig_param', 'get_sig_sect
 # Cell
 from numpydoc.docscrape import ClassDoc, FunctionDoc, Parameter
 from fastcore.xtras import get_source_link
+from fastcore.foundation import L
 from xml.etree import ElementTree as et
 import inspect, warnings
 from nbdev.showdoc import get_config
@@ -58,7 +59,7 @@ def _returns(docstring):
 
 def _desc(summary): return f'<Description summary="{_esc(summary)}" />'
 
-def np2jsx(obj):
+def np2jsx(obj, skip_sections=''):
     "Turn Numpy Docstrings Into JSX components"
     if inspect.isclass(obj): doc = ClassDoc(obj)
     elif _is_func(obj) or inspect.ismethod(obj): doc = FunctionDoc(obj)
@@ -79,11 +80,12 @@ def np2jsx(obj):
 
     jsx_sections = []
     for a in _ATTRS_PARAMS:
-        params = doc[a]
-        if params:
-            jsx_params = '\t' + '\n\t'.join([param2JSX(p) for p in params])
-            jsx_block = f'<ParamSection name="{a}">\n{jsx_params}\n</ParamSection>'
-            jsx_sections.append(jsx_block)
+        if a not in L(skip_sections):
+            params = doc[a]
+            if params:
+                jsx_params = '\t' + '\n\t'.join([param2JSX(p) for p in params])
+                jsx_block = f'<ParamSection name="{a}">\n{jsx_params}\n</ParamSection>'
+                jsx_sections.append(jsx_block)
 
     return desc_component+ '\n' + '\n'.join(jsx_sections)
 
@@ -178,7 +180,8 @@ class ShowDoc:
                  module_nm=None, #override module name. ex: 'fastai.vision'
                  decorator=False, #same as setting `objtype` = 'decorator'
                  spoofstr=None, # Spoof the signature
-                 show_import=False #show import statement
+                 show_import=False, #show import statement
+                 skip_sections='' # list of sections to skip, one or more of 'Parameters', 'Attributes', 'Returns', 'Yields', 'Raises'
                 ):
         "Construct the html and JSX representation for a particular object."
         self.spoofstr = spoofstr
@@ -193,7 +196,7 @@ class ShowDoc:
         self.decorator = decorator
         self.typ = get_type(self.obj) if not objtype else objtype
         # if not self.typ: raise ValueError(f'Can only parse a class or a function, but got a {type(self.obj)}')
-        self.npdocs = np2jsx(self.obj)
+        self.npdocs = np2jsx(self.obj, skip_sections=skip_sections)
 
         if self.typ == 'method': default_nm = self.obj.__qualname__
         elif self.typ == 'property':
